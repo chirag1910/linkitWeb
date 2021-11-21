@@ -1,9 +1,11 @@
+import Header from "../Components/Header";
+import SignupContainer from "../Components/signupPage/Signup";
+import styles from "../styles/signupPage/index.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Header from "../Components/Header";
 import { connect } from "react-redux";
 
-const index = ({ user }) => {
+const signup = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -14,8 +16,10 @@ const index = ({ user }) => {
 
     return (
         <>
-            <Header />
-            <div>Hello anonymous</div>
+            <div className={styles.headerContainer}>
+                <Header />
+            </div>
+            <SignupContainer />
         </>
     );
 };
@@ -26,4 +30,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(index);
+export default connect(mapStateToProps)(signup);

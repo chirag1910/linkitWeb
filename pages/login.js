@@ -1,9 +1,11 @@
+import Header from "../Components/Header";
+import LoginContainer from "../Components/loginPage/Login";
+import styles from "../styles/loginPage/index.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Header from "../Components/Header";
 import { connect } from "react-redux";
 
-const index = ({ user }) => {
+const login = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -14,8 +16,10 @@ const index = ({ user }) => {
 
     return (
         <>
-            <Header />
-            <div>Hello anonymous</div>
+            <div className={styles.headerContainer}>
+                <Header />
+            </div>
+            <LoginContainer />
         </>
     );
 };
@@ -26,4 +30,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(index);
+export default connect(mapStateToProps)(login);

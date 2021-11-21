@@ -1,0 +1,256 @@
+.container {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.main {
+    position: relative;
+    text-align: center;
+    padding: 40px 60px;
+    margin: 100px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.main h1 {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #002e33;
+    margin: 0 0 35px 0;
+}
+
+.main .errorMessage {
+    width: 250px;
+    color: #ff6666;
+    border: 1px #ff6666 solid;
+    background-color: rgba(255, 0, 0, 0.15);
+    font-size: medium;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+.main .errorMessage.show {
+    display: block;
+}
+
+.main .formGroup {
+    width: 250px;
+    margin-bottom: 25px;
+}
+
+.main .formGroup input {
+    background-color: transparent;
+    color: #000;
+    font-size: medium;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    border-bottom: 1px #555 solid;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.main .formGroup input:hover,
+.main .formGroup input:focus {
+    border-bottom: 1px #00a1b3 solid;
+}
+.main .formGroup input::placeholder {
+    color: #555;
+}
+
+.formButton {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #dce6ef;
+    background-color: #008a99;
+    width: 70%;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.formButton:hover:enabled {
+    background-color: #007380;
+    width: 100%;
+}
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: medium;
+    color: #555;
+    user-select: none;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+}
+.container input:checked ~ .checkmark {
+    background-color: #00a1b3;
+}
+
+.main a {
+    font-size: medium;
+    color: #00454d;
+}
+
+.main .orHr {
+    width: 100%;
+    margin: 25px auto;
+    margin-top: 30px;
+    position: relative;
+}
+.main .orHr p {
+    background-color: white;
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+}
+
+.main .googleLogin {
+    display: flex;
+    justify-content: center;
+}
+.main .googleLogin button {
+    display: flex !important;
+    border-radius: 7px !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.main .googleLogin button:hover {
+    box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px,
+        rgb(0 0 0 / 24%) 0px 0px 1px 0px !important;
+    opacity: 1 !important;
+}
+
+/* Shapes */
+.main .circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+.main .squircle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-70%, 70%);
+    height: 100px;
+    width: 100px;
+    border-radius: 20%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+@media only screen and (max-width: 800px) {
+    .main {
+        padding: 30px 40px;
+        margin: 70px;
+    }
+
+    .main h1 {
+        font-size: x-large;
+        margin: 0 0 30px 0;
+    }
+
+    .main .errorMessage {
+        font-size: small;
+        padding: 7px;
+        width: 240px;
+    }
+
+    .main .formGroup {
+        width: 240px;
+    }
+
+    .main .formGroup input {
+        font-size: small;
+        padding: 7px;
+    }
+
+    .formButton {
+        margin-top: 15px;
+        padding: 10px 13px;
+        width: 60%;
+    }
+
+    .checkbox {
+        padding-left: 20px;
+        font-size: small;
+        margin-bottom: 10px;
+    }
+
+    .checkbox .checkmark {
+        height: 12px;
+        width: 12px;
+    }
+
+    .main a {
+        font-size: small;
+    }
+
+    /* Shapes */
+    .main .circle {
+        height: 100px;
+        width: 100px;
+    }
+    .main .squircle {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main .formGroup {
+        width: 220px;
+    }
+
+    .main .errorMessage {
+        width: 220px;
+    }
+
+    /* Shapes */
+    .main .circle,
+    .main .squircle {
+        display: none;
+    }
+}

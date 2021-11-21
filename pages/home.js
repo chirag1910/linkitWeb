@@ -3,19 +3,19 @@ import { useRouter } from "next/router";
 import Header from "../Components/Header";
 import { connect } from "react-redux";
 
-const index = ({ user }) => {
+const home = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
-        if (user) {
-            router.push("/home");
+        if (!user) {
+            router.push("/");
         }
     }, [user]);
 
     return (
         <>
             <Header />
-            <div>Hello anonymous</div>
+            <div>Hello {user && user.name}</div>
         </>
     );
 };
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(index);
+export default connect(mapStateToProps)(home);
