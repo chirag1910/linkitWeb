@@ -1,6 +1,5 @@
 import Header from "../Components/Header";
 import LoginContainer from "../Components/loginPage/Login";
-import styles from "../styles/headerShadow.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
@@ -16,9 +15,7 @@ const login = ({ user }) => {
 
     return (
         <>
-            <div className={styles.headerContainer}>
-                <Header />
-            </div>
+            <Header />
             <LoginContainer />
         </>
     );
