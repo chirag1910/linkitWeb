@@ -56,9 +56,12 @@
     border-bottom: 1px #555 solid;
     transition: border-bottom 0.3s ease-in-out;
 }
-.main .formGroup input:hover,
-.main .formGroup input:focus {
+.main .formGroup input:hover:enabled,
+.main .formGroup input:focus:enabled {
     border-bottom: 1px #00a1b3 solid;
+}
+.main .formGroup input:disabled {
+    opacity: 0.5;
 }
 .main .formGroup input::placeholder {
     color: #555;
@@ -123,6 +126,8 @@
 .main a {
     font-size: medium;
     color: #00454d;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .main .orHr {
@@ -240,6 +245,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .container {
+        margin: 0 auto;
+    }
+
     .main .formGroup {
         width: 220px;
     }

@@ -71,6 +71,53 @@ export default class AuthService {
         }
     };
 
+    sendOtp = async (email) => {
+        try {
+            const response = await fetch(this.apiBaseUrl + "user/otp", {
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                }),
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+            });
+            const data = await response.json();
+
+            return data;
+        } catch (err) {
+            return {
+                status: "error",
+                error: "Some error occurred, please try again later",
+            };
+        }
+    };
+
+    resetPassword = async (email, otp, password) => {
+        try {
+            const response = await fetch(
+                this.apiBaseUrl + "user/resetPassword",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email,
+                        otp,
+                        password,
+                    }),
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                }
+            );
+            const data = await response.json();
+
+            return data;
+        } catch (err) {
+            return {
+                status: "error",
+                error: "Some error occurred, please try again later",
+            };
+        }
+    };
+
     verifyUser = async () => {
         try {
             const response = await fetch(this.apiBaseUrl + "user/", {

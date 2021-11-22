@@ -1,11 +1,11 @@
 import Header from "../Components/Header";
-import LoginContainer from "../Components/loginPage/Login";
+import ResetPasswordContainer from "../Components/resetPasswordPage/resetPassword";
 import styles from "../styles/headerShadow.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 
-const login = ({ user }) => {
+const resetPassword = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const login = ({ user }) => {
             <div className={styles.headerContainer}>
                 <Header />
             </div>
-            <LoginContainer />
+            <ResetPasswordContainer />
         </>
     );
 };
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(login);
+export default connect(mapStateToProps)(resetPassword);

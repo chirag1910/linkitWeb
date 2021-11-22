@@ -2,42 +2,23 @@ import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { GoogleLogin } from "react-google-login";
-import { connect } from "react-redux";
-import { login as loginAction } from "../../redux/action/authentication";
 
 import AuthService from "../../services/authService";
 
-const login = ({ loginAction }) => {
+const login = () => {
     const router = useRouter();
 
     const [email, setEmail] = useState("");
+    const [otp, setOtp] = useState("");
     const [password, setPassword] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
-
-    const [error, setError] = useState("");
-
     const [loading, setLoading] = useState(false);
 
-    const handleAuthGoogle = async (googleData) => {
-        setLoading(true);
-        setError("");
+    const [buttonText, setButtonText] = useState("Send OTP");
+    const [error, setError] = useState("");
 
-        if (googleData.error) {
-            setError("Some error occurred");
-            setLoading(false);
-        } else {
-            const response = await new AuthService().authGoogle(googleData);
-            if (response.status === "ok") {
-                loginAction(response.name, response.email);
-                router.push("/home");
-            } else {
-                setError(response.error);
-                setLoading(false);
-            }
-        }
-    };
+    const [otpSent, setOtpSent] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -46,30 +27,57 @@ const login = ({ loginAction }) => {
             setLoading(true);
             setError("");
 
-            const response = await new AuthService().login(
-                email.trim(),
-                password.trim()
-            );
+            if (otpSent) {
+                const response = await new AuthService().resetPassword(
+                    email,
+                    otp,
+                    password
+                );
 
-            if (response.status === "ok") {
-                loginAction(response.name, response.email);
-                router.push("/home");
+                if (response.status === "ok") {
+                    router.push("/login");
+                } else {
+                    setError(response.error);
+                    setLoading(false);
+                }
             } else {
-                setError(response.error);
+                const response = await new AuthService().sendOtp(email.trim());
+                if (response.status === "ok") {
+                    setOtpSent(true);
+                    setButtonText("Reset password");
+                } else {
+                    setError(response.error);
+                }
                 setLoading(false);
             }
         }
     };
 
     const isValidateForm = () => {
-        if (!email) {
-            setError("Email is required");
-            return false;
+        if (otpSent) {
+            if (!email) {
+                setError("Email is required");
+                return false;
+            }
+            if (!otp) {
+                setError("OTP is required");
+                return false;
+            }
+            if (!password) {
+                setError("Password is required");
+                return false;
+            }
+            if (password.length < 8) {
+                setError("Minimum password length must be 8 characters");
+                return false;
+            }
+        } else {
+            if (!email) {
+                setError("Email is required");
+                return false;
+            }
         }
-        if (!password) {
-            setError("Password is required");
-            return false;
-        }
+
         return true;
     };
 
@@ -77,7 +85,7 @@ const login = ({ loginAction }) => {
         <>
             <div className={styles.container}>
                 <div className={styles.main}>
-                    <h1>Login</h1>
+                    <h1>Reset Password</h1>
                     <p
                         className={`${styles.errorMessage} ${
                             error && styles.show
@@ -94,18 +102,35 @@ const login = ({ loginAction }) => {
                                 name="email"
                                 placeholder="Email"
                                 value={email}
+                                disabled={otpSent}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label htmlFor="password" value="Password" />
+                            <label htmlFor="otp" value="OTP" />
+                            <input
+                                id="otp"
+                                type="number"
+                                minLength="6"
+                                maxLength="6"
+                                name="otp"
+                                placeholder="One time password"
+                                value={otp}
+                                disabled={!otpSent}
+                                onChange={(e) => setOtp(e.target.value)}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label htmlFor="password" value="New password" />
                             <input
                                 id="password"
                                 type={showPassword ? "text" : "password"}
                                 name="password"
-                                placeholder="Password"
+                                placeholder="New password"
                                 value={password}
+                                disabled={!otpSent}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
@@ -126,31 +151,13 @@ const login = ({ loginAction }) => {
                             className={styles.formButton}
                             disabled={loading}
                         >
-                            Login
+                            {buttonText}
                         </button>
                     </form>
 
-                    <Link href="/resetPassword">
-                        <a>Forgot password?</a>
+                    <Link href="/login">
+                        <a>Login instead?</a>
                     </Link>
-
-                    <Link href="/signup">
-                        <a>Don't have an account?</a>
-                    </Link>
-
-                    <div className={styles.orHr}>
-                        <p>or</p>
-                        <hr />
-                    </div>
-
-                    <div className={styles.googleLogin}>
-                        <GoogleLogin
-                            clientId={process.env.GOOGLE_CLIENT_ID}
-                            buttonText="Continue with google"
-                            onSuccess={handleAuthGoogle}
-                            cookiePolicy={"single_host_origin"}
-                        />
-                    </div>
 
                     <div className={styles.circle} />
                     <div className={styles.squircle} />
@@ -160,10 +167,4 @@ const login = ({ loginAction }) => {
     );
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loginAction: (name, email) => dispatch(loginAction(name, email)),
-    };
-};
-
-export default connect(null, mapDispatchToProps)(login);
+export default login;

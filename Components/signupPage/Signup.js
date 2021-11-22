@@ -1,4 +1,4 @@
-import styles from "../../styles/signupPage/signup.module.css";
+import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";

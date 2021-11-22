@@ -1,6 +1,6 @@
 import Header from "../Components/Header";
 import SignupContainer from "../Components/signupPage/Signup";
-import styles from "../styles/signupPage/index.module.css";
+import styles from "../styles/headerShadow.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
