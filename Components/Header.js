@@ -6,10 +6,8 @@ import AuthService from "../services/authService";
 
 const Header = ({ user, logoutAction }) => {
     const handleLogout = async () => {
-        const response = await new AuthService().logout();
-        if (response.status === "ok") {
-            logoutAction();
-        }
+        await new AuthService().logout();
+        logoutAction();
     };
 
     return (
