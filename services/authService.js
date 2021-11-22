@@ -152,4 +152,23 @@ export default class AuthService {
             };
         }
     };
+
+    delete = async () => {
+        try {
+            const res = await fetch(this.apiBaseUrl + "user/delete", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                credentials: "include",
+            });
+
+            const data = await res.json();
+
+            return data;
+        } catch (err) {
+            return {
+                status: "error",
+                error: "Some error occurred, please try again later",
+            };
+        }
+    };
 }
