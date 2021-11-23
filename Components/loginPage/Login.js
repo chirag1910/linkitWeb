@@ -15,17 +15,22 @@ const login = ({ loginAction }) => {
     const [password, setPassword] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
-
-    const [error, setError] = useState("");
-
     const [loading, setLoading] = useState(false);
+
+    const [message, setMessage] = useState("");
+    const [isMessageError, setIsMessageError] = useState(false);
+
+    const updateMessage = (message, isError = false) => {
+        setMessage(message);
+        setIsMessageError(isError);
+    };
 
     const handleAuthGoogle = async (googleData) => {
         setLoading(true);
-        setError("");
+        updateMessage("");
 
         if (googleData.error) {
-            setError("Some error occurred");
+            updateMessage("Some error occurred", true);
             setLoading(false);
         } else {
             const response = await new AuthService().authGoogle(googleData);
@@ -33,7 +38,7 @@ const login = ({ loginAction }) => {
                 loginAction(response.name, response.email);
                 router.push("/home");
             } else {
-                setError(response.error);
+                updateMessage("Some error occurred", true);
                 setLoading(false);
             }
         }
@@ -44,7 +49,7 @@ const login = ({ loginAction }) => {
 
         if (isValidateForm()) {
             setLoading(true);
-            setError("");
+            updateMessage("");
 
             const response = await new AuthService().login(
                 email.trim(),
@@ -55,7 +60,7 @@ const login = ({ loginAction }) => {
                 loginAction(response.name, response.email);
                 router.push("/home");
             } else {
-                setError(response.error);
+                updateMessage(response.error, true);
                 setLoading(false);
             }
         }
@@ -63,11 +68,11 @@ const login = ({ loginAction }) => {
 
     const isValidateForm = () => {
         if (!email) {
-            setError("Email is required");
+            updateMessage("Email is required", true);
             return false;
         }
         if (!password) {
-            setError("Password is required");
+            updateMessage("Password is required", true);
             return false;
         }
         return true;
@@ -78,13 +83,15 @@ const login = ({ loginAction }) => {
             <div className={styles.container}>
                 <div className={styles.main}>
                     <h1>Login</h1>
-                    <p
-                        className={`${styles.errorMessage} ${
-                            error && styles.show
-                        }`}
-                    >
-                        {error}
-                    </p>
+                    {message && (
+                        <p
+                            className={`${styles.message} ${
+                                isMessageError ? styles.error : styles.success
+                            }`}
+                        >
+                            {message}
+                        </p>
+                    )}
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <div className={styles.formGroup}>
                             <label htmlFor="email" value="Email" />

@@ -3,16 +3,13 @@ export default class AuthService {
         this.apiBaseUrl = "http://localhost:7000/";
     }
 
-    login = async (email, password) => {
+    callApi = async (url, bodyParams) => {
         try {
-            const res = await fetch(this.apiBaseUrl + "user/login", {
+            const res = await fetch(this.apiBaseUrl + url, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
+                body: JSON.stringify(bodyParams),
             });
 
             const data = await res.json();
@@ -26,149 +23,41 @@ export default class AuthService {
         }
     };
 
-    signup = async (name, email, password) => {
-        try {
-            const response = await fetch(this.apiBaseUrl + "user/signup", {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify({
-                    name,
-                    email,
-                    password,
-                }),
-            });
-
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    initializeUser = (email) => {
+        return this.callApi("user/init", { email });
     };
 
-    authGoogle = async (googleData) => {
-        try {
-            const response = await fetch(this.apiBaseUrl + "user/auth/google", {
-                method: "POST",
-                body: JSON.stringify({
-                    googleToken: googleData.tokenId,
-                }),
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-            });
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    signup = (name, email, password, otp) => {
+        return this.callApi("user/signup", { name, email, password, otp });
     };
 
-    sendOtp = async (email) => {
-        try {
-            const response = await fetch(this.apiBaseUrl + "user/otp", {
-                method: "POST",
-                body: JSON.stringify({
-                    email,
-                }),
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-            });
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    login = (email, password) => {
+        return this.callApi("user/login", { email, password });
     };
 
-    resetPassword = async (email, otp, password) => {
-        try {
-            const response = await fetch(
-                this.apiBaseUrl + "user/resetPassword",
-                {
-                    method: "POST",
-                    body: JSON.stringify({
-                        email,
-                        otp,
-                        password,
-                    }),
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "include",
-                }
-            );
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    authGoogle = (googleData) => {
+        return this.callApi("user/auth/google", {
+            googleToken: googleData.tokenId,
+        });
     };
 
-    verifyUser = async () => {
-        try {
-            const response = await fetch(this.apiBaseUrl + "user/", {
-                method: "GET",
-                credentials: "include",
-            });
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    sendOtp = (email) => {
+        return this.callApi("user/otp", { email });
     };
 
-    logout = async () => {
-        try {
-            const response = await fetch(this.apiBaseUrl + "user/logout", {
-                method: "GET",
-                credentials: "include",
-            });
-
-            const data = await response.json();
-
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    resetPassword = (email, otp, password) => {
+        return this.callApi("user/resetPassword", { email, otp, password });
     };
 
-    delete = async () => {
-        try {
-            const res = await fetch(this.apiBaseUrl + "user/delete", {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                credentials: "include",
-            });
+    verifyUser = () => {
+        return this.callApi("user/", {});
+    };
 
-            const data = await res.json();
+    logout = () => {
+        return this.callApi("user/logout", {});
+    };
 
-            return data;
-        } catch (err) {
-            return {
-                status: "error",
-                error: "Some error occurred, please try again later",
-            };
-        }
+    delete = () => {
+        return this.callApi("user/delete", {});
     };
 }

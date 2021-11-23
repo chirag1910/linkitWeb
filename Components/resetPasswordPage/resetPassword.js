@@ -15,17 +15,23 @@ const login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const [message, setMessage] = useState("");
+    const [isMessageError, setIsMessageError] = useState(false);
     const [buttonText, setButtonText] = useState("Send OTP");
-    const [error, setError] = useState("");
 
     const [otpSent, setOtpSent] = useState(false);
+
+    const updateMessage = (message, isError = false) => {
+        setMessage(message);
+        setIsMessageError(isError);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (isValidateForm()) {
             setLoading(true);
-            setError("");
+            updateMessage("");
 
             if (otpSent) {
                 const response = await new AuthService().resetPassword(
@@ -37,16 +43,18 @@ const login = () => {
                 if (response.status === "ok") {
                     router.push("/login");
                 } else {
-                    setError(response.error);
+                    updateMessage(response.error, true);
                     setLoading(false);
                 }
             } else {
                 const response = await new AuthService().sendOtp(email.trim());
+
                 if (response.status === "ok") {
-                    setOtpSent(true);
+                    updateMessage("OTP sent");
                     setButtonText("Reset password");
+                    setOtpSent(true);
                 } else {
-                    setError(response.error);
+                    updateMessage(response.error, true);
                 }
                 setLoading(false);
             }
@@ -54,26 +62,25 @@ const login = () => {
     };
 
     const isValidateForm = () => {
+        if (!email) {
+            updateMessage("Email is required", true);
+            return false;
+        }
+
         if (otpSent) {
-            if (!email) {
-                setError("Email is required");
-                return false;
-            }
             if (!otp) {
-                setError("OTP is required");
+                updateMessage("OTP is required", true);
                 return false;
             }
             if (!password) {
-                setError("Password is required");
+                updateMessage("Password is required", true);
                 return false;
             }
             if (password.length < 8) {
-                setError("Minimum password length must be 8 characters");
-                return false;
-            }
-        } else {
-            if (!email) {
-                setError("Email is required");
+                updateMessage(
+                    "Minimum password length must be 8 characters",
+                    true
+                );
                 return false;
             }
         }
@@ -86,13 +93,15 @@ const login = () => {
             <div className={styles.container}>
                 <div className={styles.main}>
                     <h1>Reset Password</h1>
-                    <p
-                        className={`${styles.errorMessage} ${
-                            error && styles.show
-                        }`}
-                    >
-                        {error}
-                    </p>
+                    {message && (
+                        <p
+                            className={`${styles.message} ${
+                                isMessageError ? styles.error : styles.success
+                            }`}
+                        >
+                            {message}
+                        </p>
+                    )}
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <div className={styles.formGroup}>
                             <label htmlFor="email" value="Email" />

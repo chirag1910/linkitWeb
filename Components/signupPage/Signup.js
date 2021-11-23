@@ -11,23 +11,31 @@ import AuthService from "../../services/authService";
 const signup = ({ loginAction }) => {
     const router = useRouter();
 
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [otp, setOtp] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [confPassword, setConfPassword] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
-
-    const [error, setError] = useState("");
-
     const [loading, setLoading] = useState(false);
+
+    const [message, setMessage] = useState("");
+    const [isMessageError, setIsMessageError] = useState(false);
+    const [buttonText, setButtonText] = useState("Send OTP");
+
+    const [otpSent, setOtpSent] = useState(false);
+
+    const updateMessage = (message, isError = false) => {
+        setMessage(message);
+        setIsMessageError(isError);
+    };
 
     const handleAuthGoogle = async (googleData) => {
         setLoading(true);
-        setError("");
+        updateMessage("");
 
         if (googleData.error) {
-            setError("Some error occurred");
+            updateMessage("Some error occurred", true);
             setLoading(false);
         } else {
             const response = await new AuthService().authGoogle(googleData);
@@ -35,7 +43,7 @@ const signup = ({ loginAction }) => {
                 loginAction(response.name, response.email);
                 router.push("/home");
             } else {
-                setError(response.error);
+                updateMessage("Some error occurred", true);
                 setLoading(false);
             }
         }
@@ -46,49 +54,68 @@ const signup = ({ loginAction }) => {
 
         if (isValidateForm()) {
             setLoading(true);
-            setError("");
+            updateMessage("");
 
-            const response = await new AuthService().signup(
-                name.trim(),
-                email.trim(),
-                password.trim()
-            );
+            if (!otpSent) {
+                const response = await new AuthService().initializeUser(
+                    email.trim()
+                );
 
-            if (response.status === "ok") {
-                loginAction(response.name, response.email);
-                router.push("/home");
-            } else {
-                setError(response.error);
+                if (response.status === "ok") {
+                    updateMessage("OTP Sent");
+                    setButtonText("Signup");
+                    setOtpSent(true);
+                } else {
+                    updateMessage(response.error, true);
+                }
                 setLoading(false);
+            } else {
+                const response = await new AuthService().signup(
+                    name.trim(),
+                    email.trim(),
+                    password.trim(),
+                    otp
+                );
+
+                if (response.status === "ok") {
+                    loginAction(response.name, response.email);
+                    router.push("/home");
+                } else {
+                    updateMessage(response.error, true);
+                    setLoading(false);
+                }
             }
         }
     };
 
     const isValidateForm = () => {
-        if (!name) {
-            setError("Name is required");
-            return false;
-        }
         if (!email) {
-            setError("Email is required");
+            updateMessage("Email is required", true);
             return false;
         }
-        if (!password) {
-            setError("Password is required");
-            return false;
+
+        if (otpSent) {
+            if (!otp) {
+                updateMessage("OTP is required", true);
+                return false;
+            }
+            if (!name) {
+                updateMessage("Name is required", true);
+                return false;
+            }
+            if (!password) {
+                updateMessage("Password is required", true);
+                return false;
+            }
+            if (password.length < 8) {
+                updateMessage(
+                    "Minimum password length must be 8 characters",
+                    true
+                );
+                return false;
+            }
         }
-        if (!confPassword) {
-            setError("Confirm password is required");
-            return false;
-        }
-        if (password.length < 8) {
-            setError("Minimum password length must be 8 characters");
-            return false;
-        }
-        if (password != confPassword) {
-            setError("Passwords doesn't match");
-            return false;
-        }
+
         return true;
     };
 
@@ -97,26 +124,18 @@ const signup = ({ loginAction }) => {
             <div className={styles.container}>
                 <div className={styles.main}>
                     <h1>Signup</h1>
-                    <p
-                        className={`${styles.errorMessage} ${
-                            error && styles.show
-                        }`}
-                    >
-                        {error}
-                    </p>
-                    <form onSubmit={(e) => handleSubmit(e)}>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="name" value="Name" />
-                            <input
-                                id="name"
-                                type="text"
-                                name="name"
-                                placeholder="Full name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                        </div>
 
+                    {message && (
+                        <p
+                            className={`${styles.message} ${
+                                isMessageError ? styles.error : styles.success
+                            }`}
+                        >
+                            {message}
+                        </p>
+                    )}
+
+                    <form onSubmit={(e) => handleSubmit(e)}>
                         <div className={styles.formGroup}>
                             <label htmlFor="email" value="Email" />
                             <input
@@ -125,7 +144,36 @@ const signup = ({ loginAction }) => {
                                 name="email"
                                 placeholder="Email"
                                 value={email}
+                                disabled={otpSent}
                                 onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label htmlFor="otp" value="OTP" />
+                            <input
+                                id="otp"
+                                type="number"
+                                minLength="6"
+                                maxLength="6"
+                                name="otp"
+                                placeholder="One time password"
+                                value={otp}
+                                disabled={!otpSent}
+                                onChange={(e) => setOtp(e.target.value)}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label htmlFor="name" value="Name" />
+                            <input
+                                id="name"
+                                type="text"
+                                name="name"
+                                placeholder="Full name"
+                                value={name}
+                                disabled={!otpSent}
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </div>
 
@@ -137,24 +185,8 @@ const signup = ({ loginAction }) => {
                                 name="password"
                                 placeholder="Password"
                                 value={password}
+                                disabled={!otpSent}
                                 onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label
-                                htmlFor="confPassword"
-                                value="Confirm Password"
-                            />
-                            <input
-                                id="confPassword"
-                                type={showPassword ? "text" : "password"}
-                                name="confPassword"
-                                placeholder="Confirm Password"
-                                value={confPassword}
-                                onChange={(e) =>
-                                    setConfPassword(e.target.value)
-                                }
                             />
                         </div>
 
@@ -174,7 +206,7 @@ const signup = ({ loginAction }) => {
                             className={styles.formButton}
                             disabled={loading}
                         >
-                            Signup
+                            {buttonText}
                         </button>
                     </form>
                     <Link href="/login">
