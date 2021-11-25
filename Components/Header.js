@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import { logout as logoutAction } from "../redux/action/authentication";
-import AuthService from "../services/authService";
+import ApiService from "../services/apiService";
 
 const Header = ({ user, logoutAction }) => {
     const router = useRouter();
 
     const handleLogout = async () => {
-        await new AuthService().logout();
+        await new ApiService().logout();
         logoutAction();
         router.push("/");
     };

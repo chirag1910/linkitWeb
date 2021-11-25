@@ -1,16 +1,13 @@
 import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { login as loginAction } from "../../redux/action/authentication";
 
-import AuthService from "../../services/authService";
+import ApiService from "../../services/apiService";
 
 const signup = ({ loginAction }) => {
-    const router = useRouter();
-
     const [email, setEmail] = useState("");
     const [otp, setOtp] = useState("");
     const [name, setName] = useState("");
@@ -38,7 +35,7 @@ const signup = ({ loginAction }) => {
             updateMessage("Some error occurred", true);
             setLoading(false);
         } else {
-            const response = await new AuthService().authGoogle(googleData);
+            const response = await new ApiService().authGoogle(googleData);
             if (response.status === "ok") {
                 loginAction(response.name, response.email);
             } else {
@@ -56,7 +53,7 @@ const signup = ({ loginAction }) => {
             updateMessage("");
 
             if (!otpSent) {
-                const response = await new AuthService().initializeUser(
+                const response = await new ApiService().initializeUser(
                     email.trim()
                 );
 
@@ -69,7 +66,7 @@ const signup = ({ loginAction }) => {
                 }
                 setLoading(false);
             } else {
-                const response = await new AuthService().signup(
+                const response = await new ApiService().signup(
                     name.trim(),
                     email.trim(),
                     password.trim(),

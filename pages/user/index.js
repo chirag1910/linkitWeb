@@ -1,22 +1,24 @@
-import Header from "../Components/Header";
-import SignupContainer from "../Components/signupPage/Signup";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Header from "../../Components/Header";
 import { connect } from "react-redux";
 
-const signup = ({ user }) => {
+const home = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
-        if (user) {
-            router.replace("/home");
+        if (!user) {
+            router.replace({
+                pathname: "/user/login",
+                query: { next: "/user" },
+            });
         }
     }, [user]);
 
     return (
         <>
             <Header />
-            <SignupContainer />
+            <div>Hello {user && user.name}</div>
         </>
     );
 };
@@ -27,4 +29,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(signup);
+export default connect(mapStateToProps)(home);

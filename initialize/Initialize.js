@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import { login as loginAction } from "../redux/action/authentication";
-import AuthService from "../services/authService";
+import ApiService from "../services/apiService";
 import { useEffect } from "react";
 
 const Initialize = ({ children, loginAction }) => {
     useEffect(async () => {
-        const response = await new AuthService().verifyUser();
+        const response = await new ApiService().verifyUser();
         if (response.status === "ok") {
             loginAction(response.name, response.email);
         }

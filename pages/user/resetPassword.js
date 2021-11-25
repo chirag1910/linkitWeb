@@ -1,5 +1,5 @@
-import Header from "../Components/Header";
-import ResetPasswordContainer from "../Components/resetPasswordPage/resetPassword";
+import Header from "../../Components/Header";
+import ResetPasswordContainer from "../../Components/resetPasswordPage/resetPassword";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ const resetPassword = ({ user }) => {
 
     useEffect(() => {
         if (user) {
-            router.replace("/home");
+            router.replace("/user");
         }
     }, [user]);
 

@@ -1,16 +1,13 @@
 import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { login as loginAction } from "../../redux/action/authentication";
 
-import AuthService from "../../services/authService";
+import ApiService from "../../services/apiService";
 
 const login = ({ loginAction }) => {
-    const router = useRouter();
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -33,7 +30,7 @@ const login = ({ loginAction }) => {
             updateMessage("Some error occurred", true);
             setLoading(false);
         } else {
-            const response = await new AuthService().authGoogle(googleData);
+            const response = await new ApiService().authGoogle(googleData);
             if (response.status === "ok") {
                 loginAction(response.name, response.email);
             } else {
@@ -50,7 +47,7 @@ const login = ({ loginAction }) => {
             setLoading(true);
             updateMessage("");
 
-            const response = await new AuthService().login(
+            const response = await new ApiService().login(
                 email.trim(),
                 password.trim()
             );

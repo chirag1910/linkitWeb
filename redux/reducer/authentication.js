@@ -1,8 +1,8 @@
 import * as types from "../actionType/authentication";
-// import AuthService from "../../services/authService";
+// import ApiService from "../../services/apiService";
 
 // const verifyUser = async () => {
-//     const response = await new AuthService().verifyUser();
+//     const response = await new ApiService().verifyUser();
 //     if (response.status == "ok") {
 //         return { name: response.name, email: response.email };
 //     }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import AuthService from "../../services/authService";
+import ApiService from "../../services/apiService";
 
 const login = () => {
     const router = useRouter();
@@ -34,20 +34,20 @@ const login = () => {
             updateMessage("");
 
             if (otpSent) {
-                const response = await new AuthService().resetPassword(
+                const response = await new ApiService().resetPassword(
                     email,
                     otp,
                     password
                 );
 
                 if (response.status === "ok") {
-                    router.replace("/login");
+                    router.replace("/user/login");
                 } else {
                     updateMessage(response.error, true);
                     setLoading(false);
                 }
             } else {
-                const response = await new AuthService().sendOtp(email.trim());
+                const response = await new ApiService().sendOtp(email.trim());
 
                 if (response.status === "ok") {
                     updateMessage("OTP sent");

@@ -1,4 +1,4 @@
-export default class AuthService {
+export default class ApiService {
     constructor() {
         this.apiBaseUrl = "http://localhost:7000/";
     }
@@ -57,7 +57,7 @@ export default class AuthService {
         return this.callApi("user/logout", {});
     };
 
-    delete = () => {
+    deleteAccount = () => {
         return this.callApi("user/delete", {});
     };
 }
