@@ -41,7 +41,6 @@ const signup = ({ loginAction }) => {
             const response = await new AuthService().authGoogle(googleData);
             if (response.status === "ok") {
                 loginAction(response.name, response.email);
-                router.push("/home");
             } else {
                 updateMessage("Some error occurred", true);
                 setLoading(false);
@@ -79,7 +78,6 @@ const signup = ({ loginAction }) => {
 
                 if (response.status === "ok") {
                     loginAction(response.name, response.email);
-                    router.push("/home");
                 } else {
                     updateMessage(response.error, true);
                     setLoading(false);

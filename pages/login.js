@@ -8,8 +8,9 @@ const login = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
+        const { next: nextRedirect } = router.query;
         if (user) {
-            router.push("/home");
+            router.replace(nextRedirect ? nextRedirect : "/home");
         }
     }, [user]);
 

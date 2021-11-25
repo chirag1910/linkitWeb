@@ -41,7 +41,7 @@ const login = () => {
                 );
 
                 if (response.status === "ok") {
-                    router.push("/login");
+                    router.replace("/login");
                 } else {
                     updateMessage(response.error, true);
                     setLoading(false);

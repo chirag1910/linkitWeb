@@ -9,7 +9,7 @@ const resetPassword = ({ user }) => {
 
     useEffect(() => {
         if (user) {
-            router.push("/home");
+            router.replace("/home");
         }
     }, [user]);
 

@@ -1,13 +1,17 @@
 import styles from "../styles/header.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import { logout as logoutAction } from "../redux/action/authentication";
 import AuthService from "../services/authService";
 
 const Header = ({ user, logoutAction }) => {
+    const router = useRouter();
+
     const handleLogout = async () => {
         await new AuthService().logout();
         logoutAction();
+        router.push("/");
     };
 
     return (

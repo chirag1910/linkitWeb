@@ -50,7 +50,7 @@ export default class AuthService {
     };
 
     verifyUser = () => {
-        return this.callApi("user/", {});
+        return this.callApi("user/get", {});
     };
 
     logout = () => {

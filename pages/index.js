@@ -8,7 +8,7 @@ const index = ({ user }) => {
 
     useEffect(() => {
         if (user) {
-            router.push("/home");
+            router.replace("/home");
         }
     }, [user]);
 

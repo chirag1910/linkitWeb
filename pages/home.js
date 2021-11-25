@@ -8,7 +8,7 @@ const home = ({ user }) => {
 
     useEffect(() => {
         if (!user) {
-            router.push("/");
+            router.replace({ pathname: "/login", query: { next: "/home" } });
         }
     }, [user]);
 
