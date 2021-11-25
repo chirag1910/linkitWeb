@@ -22,10 +22,10 @@ const Header = ({ user, logoutAction }) => {
             <div className={styles.buttonGroup}>
                 {!user ? (
                     <>
-                        <Link href="/signup">
+                        <Link href="/user/signup">
                             <a className={styles.signup}>Signup</a>
                         </Link>
-                        <Link href="/login">
+                        <Link href="/user/login">
                             <a className={styles.login}>Login</a>
                         </Link>
                     </>

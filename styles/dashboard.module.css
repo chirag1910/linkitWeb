@@ -1,0 +1,372 @@
+.dashboard {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/dashboardBg.png");
+}
+
+.greetContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 35px 20px;
+    padding: 20px;
+}
+.greetContainer h1 {
+    color: #002e33;
+    font-size: xxx-large;
+    font-weight: 900;
+}
+
+.quickInfoContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin: 35px 20px;
+}
+
+.quickInfoContainer .quickInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 20px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.quickInfoContainer .quickInfo:hover {
+    transform: scale(1.05);
+}
+
+.quickInfoContainer .quickInfo p {
+    color: #000;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: 900;
+}
+.quickInfoContainer .quickInfo h2 {
+    color: #008a99;
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.createGroupContainer {
+    margin: 35px 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.createGroupContainer .createHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createGroupContainer .createHeader h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+    margin-right: 20px;
+    overflow-wrap: anywhere;
+}
+
+.createGroupContainer .createHeader button {
+    margin: 0;
+}
+
+.createGroupContainer .createForm {
+    overflow: hidden;
+    max-height: 0;
+    margin-top: 0;
+    transition: max-height 0.3s ease-out, margin-top 0.3s ease-in-out;
+}
+.createGroupContainer .createForm.expand {
+    margin-top: 20px;
+    max-height: 250px;
+}
+
+.createGroupContainer .createForm hr {
+    margin-bottom: 20px;
+    border-width: 0.5px;
+    border-color: #002e33;
+    background-color: #002e33;
+}
+
+.createGroupContainer .createForm button {
+    margin-top: 20px;
+}
+
+.groupsMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 40px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.groupsMain h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+}
+
+.groupsMain .message {
+    color: #0d6efd;
+    background-color: rgba(0, 0, 255, 0.15);
+    border: 1px solid #0d6efd;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    text-align: center;
+}
+.groupsMain .error {
+    color: #dc3545;
+    background-color: rgba(255, 0, 0, 0.15);
+    border: 1px solid #dc3545;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    text-align: center;
+}
+
+.groupsMain .noGroup {
+    margin-top: 40px;
+    font-size: x-large;
+    color: #008a99;
+    text-align: center;
+}
+
+.groupsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+}
+
+.groupCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.groupCard.public {
+    border-left: 5px solid #198754;
+}
+.groupCard.private {
+    border-left: 5px solid #0d6efd;
+}
+.groupCard:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+.groupCard h2 {
+    font-size: x-large;
+    margin-right: 20px;
+    overflow-wrap: anywhere;
+}
+
+.groupCard p {
+    font-size: large;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+}
+.groupCard p.public {
+    color: #198754;
+    border: 1px solid #198754;
+    background-color: rgb(0, 255, 0, 0.15);
+}
+.groupCard p.private {
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+    background-color: rgb(0, 0, 255, 0.15);
+}
+
+@media only screen and (max-width: 800px) {
+    .greetContainer {
+        margin: 25px 15px;
+        padding: 15px;
+    }
+
+    .quickInfoContainer {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 25px 15px;
+    }
+
+    .quickInfoContainer .quickInfo {
+        margin: 15px;
+        padding: 20px 15px;
+    }
+
+    .quickInfoContainer .quickInfo p {
+        margin-bottom: 15px;
+    }
+
+    .createGroupContainer {
+        margin: 25px 30px;
+        padding: 20px 30px;
+    }
+
+    .createGroupContainer .createHeader h1 {
+        margin-right: 15px;
+    }
+
+    .createGroupContainer .createForm.expand {
+        margin-top: 15px;
+        max-height: 250px;
+    }
+
+    .createGroupContainer .createForm hr {
+        margin-bottom: 15px;
+    }
+
+    .createGroupContainer .createForm button {
+        margin-top: 15px;
+    }
+
+    .groupsMain {
+        margin: 25px 30px;
+        padding: 20px 15px;
+    }
+
+    .groupsMain .message {
+        margin: 15px auto;
+        padding: 10px;
+    }
+    .groupsMain .error {
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    .groupsMain .noGroup {
+        margin-top: 30px;
+    }
+
+    .groupsContainer {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 15px;
+    }
+
+    .groupCard {
+        padding: 15px;
+        margin: 15px auto;
+        width: 95%;
+    }
+
+    .groupCard h2 {
+        margin-right: 15px;
+    }
+
+    .groupCard p {
+        font-size: medium;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .greetContainer {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+    .greetContainer h1 {
+        font-size: xx-large;
+    }
+
+    .quickInfoContainer {
+        margin: 20px 10px;
+    }
+
+    .quickInfoContainer .quickInfo {
+        margin: 10px;
+        padding: 15px 10px;
+    }
+
+    .quickInfoContainer .quickInfo p {
+        margin-bottom: 10px;
+        font-size: medium;
+    }
+    .quickInfoContainer .quickInfo h2 {
+        font-size: x-large;
+    }
+
+    .createGroupContainer {
+        margin: 20px 25px;
+        padding: 15px 25px;
+    }
+
+    .createGroupContainer .createHeader h1 {
+        font-size: x-large;
+        margin-right: 10px;
+    }
+
+    .createGroupContainer .createForm.expand {
+        margin-top: 10px;
+    }
+
+    .createGroupContainer .createForm hr {
+        margin-bottom: 10px;
+    }
+
+    .createGroupContainer .createForm button {
+        margin-top: 10px;
+    }
+
+    .groupsMain {
+        margin: 20px 25px;
+        padding: 15px 10px;
+    }
+
+    .groupsMain h1 {
+        font-size: x-large;
+    }
+
+    .groupsMain .message {
+        margin: 10px auto;
+        padding: 7px;
+    }
+    .groupsMain .error {
+        margin: 10px auto;
+        padding: 7px;
+    }
+
+    .groupsMain .noGroup {
+        margin-top: 25px;
+        font-size: large;
+    }
+
+    .groupsContainer {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+    }
+
+    .groupCard {
+        padding: 10px;
+        margin: 10px auto;
+        width: 98%;
+    }
+
+    .groupCard h2 {
+        font-size: large;
+        margin-right: 10px;
+    }
+}

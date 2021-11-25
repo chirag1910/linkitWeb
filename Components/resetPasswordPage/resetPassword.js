@@ -164,7 +164,7 @@ const login = () => {
                         </button>
                     </form>
 
-                    <Link href="/login">
+                    <Link href="/user/login">
                         <a>Login instead?</a>
                     </Link>
 

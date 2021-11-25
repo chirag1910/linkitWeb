@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Header from "../../Components/Header";
 import { connect } from "react-redux";
+import Header from "../../Components/Header";
+import GreetContainer from "../../Components/userPage/Greet";
+import QuickInfoContainer from "../../Components/userPage/QuickInfo";
+import CreateGroupContainer from "../../Components/userPage/CreateGroup";
+import GroupsContainer from "../../Components/userPage/Groups";
+import styles from "../../styles/dashboard.module.css";
 
-const home = ({ user }) => {
+const dashboard = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -16,10 +21,16 @@ const home = ({ user }) => {
     }, [user]);
 
     return (
-        <>
+        <div
+            className={styles.dashboard}
+            style={{ backgroundImage: "url('/dashboardBg.png'))" }}
+        >
             <Header />
-            <div>Hello {user && user.name}</div>
-        </>
+            <GreetContainer name={user && user.name} />
+            <QuickInfoContainer />
+            <CreateGroupContainer />
+            <GroupsContainer />
+        </div>
     );
 };
 
@@ -29,4 +40,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(home);
+export default connect(mapStateToProps)(dashboard);

@@ -204,7 +204,7 @@ const signup = ({ loginAction }) => {
                             {buttonText}
                         </button>
                     </form>
-                    <Link href="/login">
+                    <Link href="/user/login">
                         <a>Already have an account?</a>
                     </Link>
 

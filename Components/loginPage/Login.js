@@ -132,11 +132,11 @@ const login = ({ loginAction }) => {
                         </button>
                     </form>
 
-                    <Link href="/resetPassword">
+                    <Link href="/user/resetPassword">
                         <a>Forgot password?</a>
                     </Link>
 
-                    <Link href="/signup">
+                    <Link href="/user/signup">
                         <a>Don't have an account?</a>
                     </Link>
 

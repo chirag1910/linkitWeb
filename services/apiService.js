@@ -60,4 +60,20 @@ export default class ApiService {
     deleteAccount = () => {
         return this.callApi("user/delete", {});
     };
+
+    createGroup = (title, publicGroup) => {
+        return this.callApi("urlGroup/add", { title, public: publicGroup });
+    };
+
+    getGroups = () => {
+        return this.callApi("urlGroup/getAll", {});
+    };
+
+    getTotalUrlCount = () => {
+        return this.callApi("url/TotalCount", {});
+    };
+
+    getTotalUrlVisits = () => {
+        return this.callApi("url/TotalVisits");
+    };
 }

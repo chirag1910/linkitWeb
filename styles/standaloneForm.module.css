@@ -1,0 +1,147 @@
+.formButton {
+    outline: none;
+    border: none;
+    font-weight: 600;
+    padding: 7px 15px;
+    border-radius: 5px;
+    background-color: #008a99;
+    color: #fff;
+}
+
+.formButton:hover:enabled {
+    background-color: #007380;
+}
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.formGroup {
+    width: 250px;
+    margin-bottom: 25px;
+}
+
+.formGroup input {
+    background-color: transparent;
+    color: #000;
+    font-size: medium;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    border-bottom: 1px #555 solid;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.formGroup input:hover:enabled,
+.formGroup input:focus:enabled {
+    border-bottom: 1px #00a1b3 solid;
+}
+.formGroup input:disabled {
+    opacity: 0.5;
+}
+.formGroup input::placeholder {
+    color: #555;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: medium;
+    color: #555;
+    user-select: none;
+    margin-bottom: 15px;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;
+}
+.checkbox input:checked ~ .checkmark {
+    background-color: #00a1b3;
+}
+
+.checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox .checkmark:after {
+    left: 4.5px;
+    top: 1px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.message {
+    width: 250px;
+    font-size: medium;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.message.error {
+    color: #ff6666;
+    border: 1px #ff6666 solid;
+    background-color: rgba(255, 0, 0, 0.15);
+}
+.message.success {
+    color: #198754;
+    border: 1px #198754 solid;
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+@media only screen and (max-width: 800px) {
+    .message {
+        font-size: small;
+        padding: 7px;
+        width: 240px;
+    }
+
+    .formGroup {
+        width: 240px;
+    }
+
+    .formGroup input {
+        font-size: small;
+        padding: 7px;
+    }
+
+    .formButton {
+        margin-top: 15px;
+        padding: 10px 13px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .formGroup {
+        width: 220px;
+    }
+
+    .message {
+        width: 220px;
+    }
+}
