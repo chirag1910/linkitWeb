@@ -1,0 +1,572 @@
+.main {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/abstractBg.jpg");
+    padding-bottom: 1px;
+}
+
+.main .message {
+    font-size: medium;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 20px 35px;
+}
+.main .message.error {
+    color: #ff6666;
+    border: 1px #ff6666 solid;
+    background-color: rgba(255, 0, 0, 0.15);
+}
+.main .message.success {
+    color: #198754;
+    border: 1px #198754 solid;
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.groupTitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 35px 20px;
+    padding: 20px;
+}
+
+.groupTitle h1 {
+    color: #002e33;
+    font-size: xxx-large;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.groupTitle h1 span.private {
+    color: #0d6efd;
+}
+.groupTitle h1 span.public {
+    color: #198754;
+}
+
+.shareContainer {
+    margin: 35px 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shareContainer h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+    margin-right: 20px;
+    overflow-wrap: anywhere;
+}
+
+.shareContainer h1 span {
+    font-size: large;
+}
+
+.shareContainer button {
+    margin: 0;
+}
+
+.settingsContainer {
+    margin: 35px 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.settingsContainer .settingsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsContainer .settingsHeader h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+    margin-right: 20px;
+    overflow-wrap: anywhere;
+}
+
+.settingsContainer .settingsHeader button {
+    margin: 0;
+}
+
+.settingsContainer .setting {
+    overflow: hidden;
+    max-height: 0;
+    margin-top: 0;
+    transition: max-height 0.3s ease-out, margin-top 0.3s ease-in-out;
+}
+.settingsContainer .setting.expand {
+    margin-top: 20px;
+    max-height: 500px;
+}
+
+.settingsContainer .setting .message {
+    font-size: medium;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 20px 0px;
+}
+.settingsContainer .setting .message.error {
+    color: #ff6666;
+    border: 1px #ff6666 solid;
+    background-color: rgba(255, 0, 0, 0.15);
+}
+.settingsContainer .setting .message.success {
+    color: #198754;
+    border: 1px #198754 solid;
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.settingsContainer .setting hr {
+    margin-bottom: 20px;
+    border-width: 0.5px;
+    border-color: #002e33;
+    background-color: #002e33;
+}
+
+.settingsContainer .setting .mt30 {
+    margin-top: 30px;
+}
+
+.settingsContainer .setting div h2 {
+    font-size: large;
+    color: #002e33;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.settingsContainer .setting .formGroup {
+    width: 250px;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+.settingsContainer .setting .formGroup input {
+    background-color: transparent;
+    color: #000;
+    font-size: medium;
+    width: 100%;
+    padding: 10px;
+    padding-left: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px #555 solid;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.settingsContainer .setting .formGroup input:hover:enabled,
+.settingsContainer .setting .formGroup input:focus:enabled {
+    border-bottom: 1px #00a1b3 solid;
+}
+.settingsContainer .setting .formGroup input:disabled {
+    opacity: 0.5;
+}
+.settingsContainer .setting .formGroup input::placeholder {
+    color: #555;
+}
+
+.formButton {
+    outline: none;
+    border: none;
+    font-weight: 600;
+    padding: 7px 15px;
+    border-radius: 5px;
+    background-color: #008a99;
+    color: #fff;
+    display: inline-block;
+}
+
+.formButton:hover:enabled {
+    background-color: #007380;
+}
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.createUrlContainer {
+    margin: 35px 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.createUrlContainer .createHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createUrlContainer .createHeader h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+    margin-right: 20px;
+    overflow-wrap: anywhere;
+}
+
+.createUrlContainer .createHeader button {
+    margin: 0;
+}
+
+.createUrlContainer .createForm {
+    overflow: hidden;
+    max-height: 0;
+    margin-top: 0;
+    transition: max-height 0.3s ease-out, margin-top 0.3s ease-in-out;
+}
+.createUrlContainer .createForm.expand {
+    margin-top: 20px;
+    max-height: 300px;
+}
+
+.createUrlContainer .createForm hr {
+    margin-bottom: 20px;
+    border-width: 0.5px;
+    border-color: #002e33;
+    background-color: #002e33;
+}
+
+.createUrlContainer .createForm button {
+    margin-top: 10px;
+}
+
+.urlMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 40px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.urlMain h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+}
+
+.urlMain .message {
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    text-align: center;
+    color: #0d6efd;
+    background-color: rgba(0, 0, 255, 0.15);
+    border: 1px solid #0d6efd;
+}
+.urlMain .error {
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 90%;
+    text-align: center;
+    color: #dc3545;
+    background-color: rgba(255, 0, 0, 0.15);
+    border: 1px solid #dc3545;
+}
+
+.urlMain .noUrl {
+    margin-top: 40px;
+    font-size: x-large;
+    color: #008a99;
+    text-align: center;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 10;
+}
+.modal .modalBody {
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.modal .modalBody h2 {
+    font-size: large;
+    color: #002e33;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.modal .modalBody .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .main .message {
+        margin: 15px 25px;
+    }
+
+    .groupTitle {
+        margin: 25px 15px;
+        padding: 15px;
+    }
+
+    .shareContainer {
+        margin: 25px 30px;
+        padding: 20px 30px;
+    }
+
+    .shareContainer h1 {
+        margin-right: 15px;
+    }
+
+    .settingsContainer {
+        margin: 25px 30px;
+        padding: 20px 30px;
+    }
+
+    .settingsContainer .settingsHeader h1 {
+        margin-right: 15px;
+    }
+
+    .settingsContainer .setting.expand {
+        margin-top: 15px;
+    }
+
+    .settingsContainer .setting .message {
+        padding: 7px;
+        margin: 15px 0px;
+    }
+
+    .settingsContainer .setting hr {
+        margin-bottom: 15px;
+    }
+
+    .settingsContainer .setting .mt30 {
+        margin-top: 20px;
+    }
+
+    .settingsContainer .setting div h2 {
+        margin-bottom: 7px;
+    }
+
+    .settingsContainer .setting .formGroup {
+        width: 240px;
+        margin-right: 20px;
+    }
+
+    .settingsContainer .setting .formGroup input {
+        padding: 7px;
+        padding-left: 0;
+    }
+
+    .formButton {
+        padding: 5px 10px;
+    }
+
+    .createUrlContainer {
+        margin: 25px 30px;
+        padding: 20px 30px;
+    }
+
+    .createUrlContainer .createHeader h1 {
+        margin-right: 15px;
+    }
+
+    .createUrlContainer .createForm.expand {
+        margin-top: 15px;
+    }
+
+    .createUrlContainer .createForm hr {
+        margin-bottom: 15px;
+    }
+
+    .createUrlContainer .createForm button {
+        margin-top: 7px;
+    }
+
+    .urlMain {
+        margin: 25px 30px;
+        padding: 20px 15px;
+    }
+
+    .urlMain .message,
+    .urlMain .error {
+        border-radius: 10px;
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    .urlMain .noUrl {
+        margin-top: 30px;
+    }
+
+    .modal .modalBody {
+        padding: 20px;
+    }
+
+    .modal .modalBody h2 {
+        margin-bottom: 15px;
+    }
+
+    .modal .modalBody .buttonGroup {
+        margin: 0 7px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main .message {
+        font-size: small;
+        padding: 7px;
+        margin: 10px 20px;
+    }
+
+    .groupTitle {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+    .groupTitle h1 {
+        font-size: xx-large;
+    }
+
+    .shareContainer {
+        margin: 20px 25px;
+        padding: 15px 25px;
+    }
+
+    .shareContainer h1 {
+        font-size: x-large;
+        margin-right: 10px;
+    }
+
+    .shareContainer h1 span {
+        font-size: medium;
+    }
+
+    .settingsContainer {
+        margin: 20px 25px;
+        padding: 15px 25px;
+    }
+
+    .settingsContainer .settingsHeader h1 {
+        font-size: x-large;
+        margin-right: 10px;
+    }
+
+    .settingsContainer .setting.expand {
+        margin-top: 10px;
+    }
+
+    .settingsContainer .setting .message {
+        font-size: small;
+        padding: 7px;
+        margin: 10px 0px;
+    }
+
+    .settingsContainer .setting hr {
+        margin-bottom: 10px;
+    }
+
+    .settingsContainer .setting .mt30 {
+        margin-top: 15px;
+    }
+
+    .settingsContainer .setting div h2 {
+        font-size: medium;
+        margin-bottom: 5px;
+    }
+
+    .settingsContainer .setting .formGroup {
+        width: 220px;
+        margin-right: 0;
+        margin-bottom: 5;
+        display: block;
+    }
+
+    .settingsContainer .setting .formGroup input {
+        font-size: small;
+        padding: 5px;
+        padding-left: 0;
+    }
+
+    .formButton {
+        padding: 5px 10px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .createUrlContainer {
+        margin: 20px 25px;
+        padding: 15px 25px;
+    }
+
+    .createUrlContainer .createHeader h1 {
+        font-size: x-large;
+        margin-right: 10px;
+    }
+
+    .createUrlContainer .createForm.expand {
+        margin-top: 10px;
+    }
+
+    .createUrlContainer .createForm hr {
+        margin-bottom: 10px;
+    }
+
+    .createUrlContainer .createForm button {
+        margin-top: 5px;
+    }
+
+    .urlMain {
+        margin: 20px 25px;
+        padding: 15px 10px;
+    }
+
+    .urlMain h1 {
+        font-size: x-large;
+    }
+
+    .urlMain .message,
+    .urlMain .error {
+        font-size: small;
+        margin: 10px auto;
+        padding: 7px;
+    }
+
+    .urlMain .noUrl {
+        margin-top: 25px;
+        font-size: large;
+    }
+
+    .modal .modalBody {
+        padding: 15px;
+    }
+
+    .modal .modalBody h2 {
+        font-size: medium;
+        margin-bottom: 10px;
+    }
+
+    .modal .modalBody .buttonGroup {
+        margin: 0 5px;
+    }
+}

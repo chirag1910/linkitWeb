@@ -21,10 +21,7 @@ const dashboard = ({ user }) => {
     }, [user]);
 
     return (
-        <div
-            className={styles.dashboard}
-            style={{ backgroundImage: "url('/dashboardBg.png'))" }}
-        >
+        <div className={styles.dashboard}>
             <Header />
             <GreetContainer name={user && user.name} />
             <QuickInfoContainer />

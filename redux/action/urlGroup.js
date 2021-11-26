@@ -19,3 +19,43 @@ export const addGroup = (groupID, title, publicGroup) => {
         },
     };
 };
+
+export const deleteGroup = (groupID) => {
+    return {
+        type: types.DELETE_GROUP,
+        payload: {
+            groupID,
+        },
+    };
+};
+
+export const setActiveGroup = (groupID, title, publicGroup) => {
+    return {
+        type: types.SET_ACTIVE_GROUP,
+        payload: {
+            group: {
+                groupID,
+                title,
+                public: publicGroup,
+            },
+        },
+    };
+};
+
+export const updateActiveGroupTitle = (title) => {
+    return {
+        type: types.UPDATE_ACTIVE_GROUP_TITLE,
+        payload: {
+            title,
+        },
+    };
+};
+
+export const updateActiveGroupPublic = (publicGroup) => {
+    return {
+        type: types.UPDATE_ACTIVE_GROUP_PUBLIC,
+        payload: {
+            public: publicGroup,
+        },
+    };
+};

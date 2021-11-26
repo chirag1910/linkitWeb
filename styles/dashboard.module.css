@@ -3,7 +3,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/dashboardBg.png");
+    background-image: url("/abstractBg.jpg");
+    padding-bottom: 1px;
 }
 
 .greetContainer {
@@ -17,6 +18,7 @@
     color: #002e33;
     font-size: xxx-large;
     font-weight: 900;
+    overflow-wrap: anywhere;
 }
 
 .quickInfoContainer {
@@ -341,6 +343,7 @@
     }
 
     .groupsMain .message {
+        font-size: small;
         margin: 10px auto;
         padding: 7px;
     }

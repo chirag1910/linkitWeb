@@ -2,6 +2,7 @@ import styles from "../../styles/dashboard.module.css";
 import ApiService from "../../services/apiService";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { setGroups as setGroupsAction } from "../../redux/action/urlGroup";
 
 const Groups = ({ groups, setGroupsAction }) => {
@@ -28,21 +29,31 @@ const Groups = ({ groups, setGroupsAction }) => {
             )}
             <div className={styles.groupsContainer}>
                 {groups.map((group) => (
-                    <div
-                        className={`${styles.groupCard} ${
-                            group.public ? styles.public : styles.private
-                        }`}
+                    <Link
+                        href={`/user/group/${group.groupID}`}
                         key={group.groupID}
                     >
-                        <h2>{group.title}</h2>
-                        <p
-                            className={
-                                group.public ? styles.public : styles.private
-                            }
-                        >
-                            {group.public ? "Public" : "Private"}
-                        </p>
-                    </div>
+                        <a>
+                            <div
+                                className={`${styles.groupCard} ${
+                                    group.public
+                                        ? styles.public
+                                        : styles.private
+                                }`}
+                            >
+                                <h2>{group.title}</h2>
+                                <p
+                                    className={
+                                        group.public
+                                            ? styles.public
+                                            : styles.private
+                                    }
+                                >
+                                    {group.public ? "Public" : "Private"}
+                                </p>
+                            </div>
+                        </a>
+                    </Link>
                 ))}
             </div>
         </div>

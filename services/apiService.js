@@ -65,8 +65,38 @@ export default class ApiService {
         return this.callApi("urlGroup/add", { title, public: publicGroup });
     };
 
+    updateGroupTitle = (groupID, title) => {
+        return this.callApi("urlGroup/update", {
+            groupID,
+            title,
+        });
+    };
+
+    updateGroupVisibility = (groupID, publicGroup) => {
+        return this.callApi("urlGroup/update", {
+            groupID,
+            public: publicGroup,
+        });
+    };
+
+    getGroup = (groupID) => {
+        return this.callApi("urlGroup/get", { groupID });
+    };
+
     getGroups = () => {
         return this.callApi("urlGroup/getAll", {});
+    };
+
+    deleteGroup = (groupID) => {
+        return this.callApi("urlGroup/delete", { groupID });
+    };
+
+    createUrl = (groupID, title, fullUrl) => {
+        return this.callApi("url/add", { groupID, title, fullUrl });
+    };
+
+    getUrls = (groupID) => {
+        return this.callApi("url/getAll", { groupID });
     };
 
     getTotalUrlCount = () => {
@@ -75,5 +105,9 @@ export default class ApiService {
 
     getTotalUrlVisits = () => {
         return this.callApi("url/TotalVisits");
+    };
+
+    deleteUrls = (groupID) => {
+        return this.callApi("url/deleteAll", { groupID });
     };
 }
