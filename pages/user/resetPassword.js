@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../../Components/Header";
 import ResetPasswordContainer from "../../Components/resetPasswordPage/resetPassword";
 import { useEffect } from "react";
@@ -15,6 +16,10 @@ const resetPassword = ({ user }) => {
 
     return (
         <>
+            <Head>
+                <title>Reset Password | LinkIt</title>
+                <meta name="description" content="LinkIt reset password page" />
+            </Head>
             <Header />
             <ResetPasswordContainer />
         </>

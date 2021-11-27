@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../../Components/Header";
 import SignupContainer from "../../Components/signupPage/Signup";
 import { useEffect } from "react";
@@ -15,6 +16,10 @@ const signup = ({ user }) => {
 
     return (
         <>
+            <Head>
+                <title>Signup | LinkIt</title>
+                <meta name="description" content="LinkIt signup page" />
+            </Head>
             <Header />
             <SignupContainer />
         </>

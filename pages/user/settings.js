@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
@@ -18,10 +19,19 @@ const settings = ({ user, groups }) => {
     }, [user]);
 
     return (
-        <div className={styles.main}>
-            <Header />
-            <SettingsContainer />
-        </div>
+        <>
+            <Head>
+                <title>Settings | LinkIt</title>
+                <meta
+                    name="description"
+                    content="User's settings page | LinkIt"
+                />
+            </Head>
+            <div className={styles.main}>
+                <Header />
+                <SettingsContainer />
+            </div>
+        </>
     );
 };
 

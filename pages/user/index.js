@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
@@ -21,13 +22,22 @@ const dashboard = ({ user }) => {
     }, [user]);
 
     return (
-        <div className={styles.dashboard}>
-            <Header />
-            <GreetContainer name={user && user.name} />
-            <QuickInfoContainer />
-            <CreateGroupContainer />
-            <GroupsContainer />
-        </div>
+        <>
+            <Head>
+                <title>Dashboard | LinkIt</title>
+                <meta
+                    name="description"
+                    content="User's dashboard page | LinkIt"
+                />
+            </Head>
+            <div className={styles.dashboard}>
+                <Header />
+                <GreetContainer name={user && user.name} />
+                <QuickInfoContainer />
+                <CreateGroupContainer />
+                <GroupsContainer />
+            </div>
+        </>
     );
 };
 

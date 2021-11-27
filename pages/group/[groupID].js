@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ApiService from "../../services/apiService";
@@ -32,19 +33,25 @@ const publicGroup = () => {
     }, [groupID]);
 
     return (
-        <div className={styles.main}>
-            <Header />
+        <>
+            <Head>
+                <title>URL group | LinkIt</title>
+                <meta name="description" content="URL group | LinkIt" />
+            </Head>
+            <div className={styles.main}>
+                <Header />
 
-            {showLoader && (
-                <div className={styles.loaderContainer}>
-                    <div className={styles.loader} />
-                </div>
-            )}
+                {showLoader && (
+                    <div className={styles.loaderContainer}>
+                        <div className={styles.loader} />
+                    </div>
+                )}
 
-            {groupLoaded && (
-                <PublicGroupContainer title={groupTitle} urls={groupUrls} />
-            )}
-        </div>
+                {groupLoaded && (
+                    <PublicGroupContainer title={groupTitle} urls={groupUrls} />
+                )}
+            </div>
+        </>
     );
 };
 

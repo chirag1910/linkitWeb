@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../../Components/Header";
 import LoginContainer from "../../Components/loginPage/Login";
 import { useEffect } from "react";
@@ -16,6 +17,10 @@ const login = ({ user }) => {
 
     return (
         <>
+            <Head>
+                <title>Login | LinkIt</title>
+                <meta name="description" content="LinkIt login page" />
+            </Head>
             <Header />
             <LoginContainer />
         </>

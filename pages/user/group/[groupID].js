@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
@@ -62,29 +63,35 @@ const group = ({ user, setActiveGroupAction }) => {
     };
 
     return (
-        <div className={styles.main}>
-            <Header />
+        <>
+            <Head>
+                <title>URL group | LinkIt</title>
+                <meta name="description" content="URL group page | LinkIt" />
+            </Head>
+            <div className={styles.main}>
+                <Header />
 
-            {message && (
-                <p
-                    className={`${styles.message} ${
-                        isMessageError ? styles.error : styles.success
-                    }`}
-                >
-                    {message}
-                </p>
-            )}
+                {message && (
+                    <p
+                        className={`${styles.message} ${
+                            isMessageError ? styles.error : styles.success
+                        }`}
+                    >
+                        {message}
+                    </p>
+                )}
 
-            {grouploaded && (
-                <>
-                    <TitleContainer />
-                    <ShareGroupContainer />
-                    <SettingsContainer />
-                    <CreateUrlContainer />
-                    <UrlsContainer />
-                </>
-            )}
-        </div>
+                {grouploaded && (
+                    <>
+                        <TitleContainer />
+                        <ShareGroupContainer />
+                        <SettingsContainer />
+                        <CreateUrlContainer />
+                        <UrlsContainer />
+                    </>
+                )}
+            </div>
+        </>
     );
 };
 

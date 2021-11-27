@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import ApiService from "../services/apiService";
@@ -20,9 +21,15 @@ const publicUrl = () => {
     }, [urlID]);
 
     return (
-        <div className={styles.loaderContainer}>
-            <div className={styles.loader} />
-        </div>
+        <>
+            <Head>
+                <title>URL shortner | LinkIt</title>
+                <meta name="description" content="URL shortner" />
+            </Head>
+            <div className={styles.loaderContainer}>
+                <div className={styles.loader} />
+            </div>
+        </>
     );
 };
 
