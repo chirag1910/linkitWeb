@@ -4,6 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("/abstractBg.jpg");
+    background-attachment: fixed;
     padding-bottom: 1px;
 }
 
