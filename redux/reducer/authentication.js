@@ -1,13 +1,4 @@
 import * as types from "../actionType/authentication";
-// import ApiService from "../../services/apiService";
-
-// const verifyUser = async () => {
-//     const response = await new ApiService().verifyUser();
-//     if (response.status == "ok") {
-//         return { name: response.name, email: response.email };
-//     }
-//     return null;
-// };
 
 const INITIAL_STATE = {
     user: null,

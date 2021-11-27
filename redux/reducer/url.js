@@ -28,7 +28,6 @@ const url = (state = INITIAL_STATE, action) => {
             urls: action.payload,
         };
     } else if (action.type === types.UPDATE_URL) {
-        console.log(action.payload);
         return {
             ...state,
             urls: state.urls.map((url) =>
