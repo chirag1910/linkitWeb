@@ -108,6 +108,10 @@ export default class ApiService {
         return this.callApi("urlGroup/deleteAll");
     };
 
+    getPublicGroup = (groupID) => {
+        return this.callApi("urlGroup/public/get", { groupID });
+    };
+
     createUrl = (groupID, title, fullUrl) => {
         return this.callApi("url/add", { groupID, title, fullUrl });
     };
