@@ -25,6 +25,10 @@ const publicUrl = () => {
             <Head>
                 <title>URL shortner | LinkIt</title>
                 <meta name="description" content="URL shortner" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <div className={styles.loaderContainer}>
                 <div className={styles.loader} />

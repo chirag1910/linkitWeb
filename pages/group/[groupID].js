@@ -37,6 +37,10 @@ const publicGroup = () => {
             <Head>
                 <title>URL group | LinkIt</title>
                 <meta name="description" content="URL group | LinkIt" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <div className={styles.main}>
                 <Header />

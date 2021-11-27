@@ -19,6 +19,10 @@ const resetPassword = ({ user }) => {
             <Head>
                 <title>Reset Password | LinkIt</title>
                 <meta name="description" content="LinkIt reset password page" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <Header />
             <ResetPasswordContainer />

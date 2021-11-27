@@ -15,10 +15,6 @@ class MyDocument extends Document {
                         content="URL shortner, URL sharing, URL group sharing"
                     />
                     <meta name="author" content="Chirag Goyal" />
-                    <meta
-                        name="viewport"
-                        content="width=device-width, initial-scale=1.0"
-                    />
                 </Head>
                 <body>
                     <Main />

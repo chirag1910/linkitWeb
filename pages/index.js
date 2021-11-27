@@ -21,6 +21,10 @@ const index = ({ user }) => {
                     name="description"
                     content="URL group sharing and URL shortner at one spot"
                 />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <Header />
             <div>Hello anonymous</div>

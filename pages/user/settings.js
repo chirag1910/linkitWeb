@@ -26,6 +26,10 @@ const settings = ({ user, groups }) => {
                     name="description"
                     content="User's settings page | LinkIt"
                 />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <div className={styles.main}>
                 <Header />

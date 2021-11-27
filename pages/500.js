@@ -8,6 +8,10 @@ const custom500 = () => {
             <Head>
                 <title>500 | LinkIt</title>
                 <meta name="description" content="Internal server error" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
             </Head>
             <div className={styles.main}>
                 <div className={styles.container}>
