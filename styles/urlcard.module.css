@@ -1,0 +1,217 @@
+.card form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    margin: 10px;
+}
+
+.formGroup {
+    margin: 0 10px;
+}
+
+.formGroup input {
+    background-color: transparent;
+    color: #000;
+    font-size: medium;
+    padding: 10px;
+    width: 100%;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    border-bottom: 1px #555 solid;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.formGroup input:hover:enabled,
+.formGroup input:focus:enabled {
+    border-bottom: 1px #00a1b3 solid;
+}
+.formGroup input:disabled {
+    opacity: 0.7;
+}
+.formGroup input::placeholder {
+    color: #555;
+}
+
+.buttonGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 10px;
+}
+
+.formButton {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 7px;
+    outline: none;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+}
+.formButton:hover:enabled {
+    filter: brightness(0.98);
+}
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.formButton img {
+    filter: invert(1);
+    width: auto;
+    height: 25px;
+}
+
+.expandable {
+    position: relative;
+}
+
+.expandable .dropdown {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    bottom: calc(100% + 5px);
+    right: 5px;
+    pointer-events: none;
+    border-radius: 7px;
+    backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255, 0.85);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transition: max-height 0.3s ease-in-out;
+}
+.expandable .dropdown.expand {
+    max-height: 120px;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.expandable .dropdown ul {
+    margin: 5px 0;
+}
+
+.expandable .dropdown ul li {
+    padding: 7px 20px;
+    transition: backdrop-filter 0.3s ease-in-out;
+    cursor: pointer;
+}
+.expandable .dropdown ul li:hover {
+    backdrop-filter: brightness(0.93);
+}
+
+.modal {
+    margin: 15px 20px;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+.modal.show {
+    max-height: 350px;
+}
+
+.modal .urlInfoContainer .urlInfo {
+    margin-bottom: 10px;
+}
+
+.modal .urlInfoContainer .urlInfoTitle {
+    color: #002e33;
+    font-size: large;
+}
+.modal .urlInfoContainer .urlInfoDescription {
+    color: #008a99;
+    font-size: medium;
+}
+
+.modal .formButton {
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.modal hr {
+    border: none;
+    border-bottom: 0.5px solid #000;
+}
+
+@media only screen and (max-width: 800px) {
+    .card form {
+        grid-template-columns: 1fr;
+        margin: 7px;
+    }
+
+    .formGroup {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .formGroup input {
+        padding: 7px;
+    }
+
+    .buttonGroup {
+        display: flex;
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    .formButton {
+        padding: 5px 7px;
+    }
+
+    .modal {
+        margin: 10px 15px;
+    }
+    .modal.show {
+        max-height: 350px;
+    }
+
+    .modal .urlInfoContainer .urlInfo {
+        margin-bottom: 7px;
+    }
+
+    .modal .formButton {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card form {
+        margin: 5px;
+    }
+
+    .formGroup {
+        margin-bottom: 7px;
+    }
+
+    .formGroup input {
+        font-size: small;
+    }
+
+    .buttonGroup {
+        margin-right: 7px;
+    }
+
+    .formButton img {
+        height: 18px;
+    }
+
+    .modal {
+        margin: 7px 7px;
+    }
+
+    .modal .urlInfoContainer .urlInfo {
+        margin-bottom: 7px;
+    }
+
+    .modal .urlInfoContainer .urlInfoTitle {
+        font-size: medium;
+    }
+    .modal .urlInfoContainer .urlInfoDescription {
+        font-size: small;
+    }
+
+    .modal .formButton {
+        margin-bottom: 7px;
+    }
+}

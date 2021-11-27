@@ -3,6 +3,7 @@ import ApiService from "../../services/apiService";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { setUrls as setUrlsAction } from "../../redux/action/url";
+import UrlCard from "./UrlCard";
 
 const Urls = ({ urls, group, setUrlsAction }) => {
     const [message, setMessage] = useState("Loading...");
@@ -28,11 +29,13 @@ const Urls = ({ urls, group, setUrlsAction }) => {
             {!urls.length && !message && !error && (
                 <h2 className={styles.noUrl}>Add urls to get started</h2>
             )}
-            <div className={styles.urlsContainer}>
-                {urls.map((url) => (
-                    <p key={url.urlID}>{url.title}</p>
-                ))}
-            </div>
+            {urls.length && !message && !error && (
+                <div className={styles.urlsContainer}>
+                    {urls.map((url) => (
+                        <UrlCard url={url} key={url.urlID} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

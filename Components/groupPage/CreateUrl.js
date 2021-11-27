@@ -102,7 +102,7 @@ const CreateUrl = ({ group, addUrlAction }) => {
                             id="title"
                             type="text"
                             name="title"
-                            placeholder="Group title"
+                            placeholder="URL title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
@@ -114,7 +114,7 @@ const CreateUrl = ({ group, addUrlAction }) => {
                             id="fullUrl"
                             type="url"
                             name="fullUrl"
-                            placeholder="Full URL"
+                            placeholder="https://www.example.com/"
                             value={fullUrl}
                             onChange={(e) => setFullUrl(e.target.value)}
                         />

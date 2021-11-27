@@ -22,11 +22,10 @@ export const addUrl = (groupID, urlID, title, fullUrl, visits) => {
     };
 };
 
-export const deleteUrl = (groupID, urlID) => {
+export const deleteUrl = (urlID) => {
     return {
         type: types.DELETE_URL,
         payload: {
-            groupID,
             urlID,
         },
     };
@@ -39,20 +38,13 @@ export const deleteUrls = () => {
     };
 };
 
-// export const updateActiveGroupTitle = (title) => {
-//     return {
-//         type: types.UPDATE_ACTIVE_GROUP_TITLE,
-//         payload: {
-//             title,
-//         },
-//     };
-// };
-
-// export const updateActiveGroupPublic = (publicGroup) => {
-//     return {
-//         type: types.UPDATE_ACTIVE_GROUP_PUBLIC,
-//         payload: {
-//             public: publicGroup,
-//         },
-//     };
-// };
+export const updateUrl = (urlID, title, fullUrl) => {
+    return {
+        type: types.UPDATE_URL,
+        payload: {
+            urlID,
+            title,
+            fullUrl,
+        },
+    };
+};

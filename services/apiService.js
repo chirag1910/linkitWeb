@@ -95,6 +95,10 @@ export default class ApiService {
         return this.callApi("url/add", { groupID, title, fullUrl });
     };
 
+    updateUrl = (groupID, urlID, title, fullUrl) => {
+        return this.callApi("url/update", { groupID, urlID, title, fullUrl });
+    };
+
     getUrls = (groupID) => {
         return this.callApi("url/getAll", { groupID });
     };
@@ -105,6 +109,10 @@ export default class ApiService {
 
     getTotalUrlVisits = () => {
         return this.callApi("url/TotalVisits");
+    };
+
+    deleteUrl = (groupID, urlID) => {
+        return this.callApi("url/delete", { groupID, urlID });
     };
 
     deleteUrls = (groupID) => {

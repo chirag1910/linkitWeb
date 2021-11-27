@@ -246,7 +246,7 @@
     justify-content: center;
     align-items: center;
     margin: 35px 40px;
-    padding: 30px 20px;
+    padding: 30px 40px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -278,6 +278,12 @@
     color: #dc3545;
     background-color: rgba(255, 0, 0, 0.15);
     border: 1px solid #dc3545;
+}
+
+.urlsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .urlMain .noUrl {
@@ -406,7 +412,7 @@
 
     .urlMain {
         margin: 25px 30px;
-        padding: 20px 15px;
+        padding: 20px 30px;
     }
 
     .urlMain .message,
@@ -538,7 +544,7 @@
 
     .urlMain {
         margin: 20px 25px;
-        padding: 15px 10px;
+        padding: 15px 25px;
     }
 
     .urlMain h1 {

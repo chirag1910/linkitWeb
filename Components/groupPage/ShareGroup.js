@@ -13,18 +13,20 @@ const ShareGroup = ({ group }) => {
         }, 1000);
     };
 
+    const groupShareUrl = `/group/${group.groupID}`;
+
     return (
         <>
             {group && group.public && (
                 <div className={styles.shareContainer}>
                     <h1>
-                        Share group via <span>{`/group/${group.groupID}`}</span>
+                        Share group via <span>{groupShareUrl}</span>
                     </h1>
                     <button
                         type="button"
                         className={styles.formButton}
                         onClick={() => {
-                            copyToClipboard(`/group/${group.groupID}`);
+                            copyToClipboard(groupShareUrl);
                         }}
                     >
                         {copyButtonText}

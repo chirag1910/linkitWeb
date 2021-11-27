@@ -19,9 +19,7 @@ const url = (state = INITIAL_STATE, action) => {
         return {
             ...state,
             urls: state.urls.filter(
-                (url) =>
-                    url.groupID !== action.payload.groupID &&
-                    url.urlId !== action.payload.urlID
+                (url) => url.urlID !== action.payload.urlID
             ),
         };
     } else if (action.type === types.DELETE_URLS) {
@@ -29,22 +27,20 @@ const url = (state = INITIAL_STATE, action) => {
             ...state,
             urls: action.payload,
         };
-        // } else if (action.type === types.UPDATE_ACTIVE_GROUP_TITLE) {
-        //     return {
-        //         ...state,
-        //         activeGroup: {
-        //             ...state.activeGroup,
-        //             title: action.payload.title,
-        //         },
-        //     };
-        // } else if (action.type === types.UPDATE_ACTIVE_GROUP_PUBLIC) {
-        //     return {
-        //         ...state,
-        //         activeGroup: {
-        //             ...state.activeGroup,
-        //             public: action.payload.public,
-        //         },
-        //     };
+    } else if (action.type === types.UPDATE_URL) {
+        console.log(action.payload);
+        return {
+            ...state,
+            urls: state.urls.map((url) =>
+                url.urlID === action.payload.urlID
+                    ? {
+                          ...url,
+                          title: action.payload.title,
+                          fullUrl: action.payload.fullUrl,
+                      }
+                    : url
+            ),
+        };
     } else {
         return state;
     }
