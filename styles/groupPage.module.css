@@ -323,7 +323,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 10px;
+    margin: 0;
 }
 
 @media only screen and (max-width: 800px) {
@@ -432,10 +432,6 @@
 
     .modal .modalBody h2 {
         margin-bottom: 15px;
-    }
-
-    .modal .modalBody .buttonGroup {
-        margin: 0 7px;
     }
 }
 
@@ -570,9 +566,5 @@
     .modal .modalBody h2 {
         font-size: medium;
         margin-bottom: 10px;
-    }
-
-    .modal .modalBody .buttonGroup {
-        margin: 0 5px;
     }
 }

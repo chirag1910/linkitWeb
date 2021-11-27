@@ -31,6 +31,9 @@ const Header = ({ user, logoutAction }) => {
                     </>
                 ) : (
                     <>
+                        <Link href="/user/settings">
+                            <a className={styles.settings}>Settings</a>
+                        </Link>
                         <button
                             type="button"
                             className={styles.logout}

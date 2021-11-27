@@ -29,6 +29,13 @@ export const deleteGroup = (groupID) => {
     };
 };
 
+export const deleteAllGroups = () => {
+    return {
+        type: types.DELETE_ALL_GROUPS,
+        payload: [],
+    };
+};
+
 export const setActiveGroup = (groupID, title, publicGroup) => {
     return {
         type: types.SET_ACTIVE_GROUP,

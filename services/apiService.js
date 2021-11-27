@@ -57,8 +57,21 @@ export default class ApiService {
         return this.callApi("user/logout", {});
     };
 
-    deleteAccount = () => {
-        return this.callApi("user/delete", {});
+    changePassword = (oldPassword, newPassword) => {
+        return this.callApi("user/changePassword", {
+            oldPassword,
+            newPassword,
+        });
+    };
+
+    changeName = (name) => {
+        return this.callApi("user/changeName", {
+            name,
+        });
+    };
+
+    deleteAccount = (password) => {
+        return this.callApi("user/delete", { password });
     };
 
     createGroup = (title, publicGroup) => {
@@ -89,6 +102,10 @@ export default class ApiService {
 
     deleteGroup = (groupID) => {
         return this.callApi("urlGroup/delete", { groupID });
+    };
+
+    deleteAllGroups = () => {
+        return this.callApi("urlGroup/deleteAll");
     };
 
     createUrl = (groupID, title, fullUrl) => {

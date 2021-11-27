@@ -195,12 +195,12 @@ const Settings = ({
                             disabled={loading}
                             onClick={() => setShowDeleteAllUrls(true)}
                         >
-                            Delete Urls
+                            Delete urls
                         </button>
                     </div>
 
                     <div className={styles.mt30}>
-                        <h2>Delete Group</h2>
+                        <h2>Delete group</h2>
 
                         <button
                             type="button"
@@ -209,7 +209,7 @@ const Settings = ({
                             disabled={loading}
                             onClick={() => setShowDeleteGroup(true)}
                         >
-                            Delete Group
+                            Delete group
                         </button>
                     </div>
                 </div>

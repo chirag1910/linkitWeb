@@ -16,3 +16,12 @@ export const logout = () => {
         payload: null,
     };
 };
+
+export const changeName = (name, email) => {
+    return {
+        type: types.CHANGE_NAME,
+        payload: {
+            name,
+        },
+    };
+};

@@ -46,9 +46,11 @@
 .header .buttonGroup .logout:hover {
     background-color: #007380;
 }
-.header .buttonGroup .login {
+.header .buttonGroup .login,
+.header .buttonGroup .settings {
     background-color: transparent;
 }
-.header .buttonGroup .login:hover {
+.header .buttonGroup .login:hover,
+.header .buttonGroup .settings:hover {
     background-color: rgb(0, 0, 0, 0.07);
 }

@@ -26,6 +26,11 @@ const urlGroup = (state = INITIAL_STATE, action) => {
                 (group) => group.groupID !== action.payload.groupID
             ),
         };
+    } else if (action.type === types.DELETE_ALL_GROUPS) {
+        return {
+            ...state,
+            groups: action.payload,
+        };
     } else if (action.type === types.SET_ACTIVE_GROUP) {
         return {
             ...state,

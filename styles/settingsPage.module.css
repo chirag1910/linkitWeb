@@ -1,0 +1,303 @@
+.main {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/abstractBg.jpg");
+    padding-bottom: 1px;
+}
+
+.settingsContainer {
+    margin: 35px 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.settingsContainer .settingsHeader h1 {
+    font-size: xx-large;
+    color: #002e33;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.settingsContainer hr {
+    margin: 20px auto;
+    border-width: 0.5px;
+    border-color: #002e33;
+    background-color: #002e33;
+}
+
+.settingsContainer .setting .message {
+    font-size: medium;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 20px 0;
+}
+.settingsContainer .setting .message.error {
+    color: #ff6666;
+    border: 1px #ff6666 solid;
+    background-color: rgba(255, 0, 0, 0.15);
+}
+.settingsContainer .setting .message.success {
+    color: #198754;
+    border: 1px #198754 solid;
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.settingsContainer .setting div h2 {
+    font-size: large;
+    color: #002e33;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.settingsContainer .setting .formGroup {
+    width: 250px;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+.settingsContainer .setting .formGroup input {
+    background-color: transparent;
+    color: #000;
+    font-size: medium;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-left: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px #555 solid;
+    transition: border-bottom 0.3s ease-in-out;
+}
+.settingsContainer .setting .formGroup input:hover:enabled,
+.settingsContainer .setting .formGroup input:focus:enabled {
+    border-bottom: 1px #00a1b3 solid;
+}
+.settingsContainer .setting .formGroup input:disabled {
+    opacity: 0.5;
+}
+.settingsContainer .setting .formGroup input::placeholder {
+    color: #555;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: medium;
+    color: #555;
+    user-select: none;
+    text-align: left;
+    margin: 15px 0;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+}
+.checkbox input:checked ~ .checkmark {
+    background-color: #00a1b3;
+}
+
+.formButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #008a99;
+    width: 250px;
+    transition: background-color 0.3s ease-in-out;
+}
+.formButton:hover:enabled {
+    background-color: #007380;
+}
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 10;
+}
+.modal .modalBody {
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.modal .modalBody h2 {
+    font-size: large;
+    color: #002e33;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.modal .modalBody .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.modal .modalBody .buttonGroup .formButton {
+    width: auto;
+    margin: 0;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .settingsContainer {
+        margin: 20px 25px;
+        padding: 20px 25px;
+    }
+
+    .settingsContainer hr {
+        margin: 15px auto;
+    }
+
+    .settingsContainer .setting .message {
+        padding: 7px;
+        margin: 15px 0;
+    }
+
+    .settingsContainer .setting div h2 {
+        margin-bottom: 7px;
+    }
+
+    .settingsContainer .setting .formGroup {
+        width: 240px;
+    }
+
+    .settingsContainer .setting .formGroup input {
+        margin-bottom: 7px;
+        padding: 7px;
+        padding-left: 0;
+    }
+
+    .checkbox {
+        padding-left: 20px;
+        font-size: small;
+        margin-bottom: 10px;
+    }
+
+    .checkbox .checkmark {
+        height: 12px;
+        width: 12px;
+    }
+
+    .formButton {
+        margin-top: 7px;
+        padding: 7px 15px;
+        width: 240px;
+    }
+
+    .mt30 {
+        margin-top: 20px;
+    }
+
+    .modal .modalBody {
+        padding: 20px;
+    }
+
+    .modal .modalBody h2 {
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .settingsContainer {
+        margin: 15px 20px;
+        padding: 15px 20px;
+    }
+
+    .settingsContainer .settingsHeader h1 {
+        font-size: x-large;
+    }
+
+    .settingsContainer hr {
+        margin: 10px auto;
+    }
+
+    .settingsContainer .setting .message {
+        padding: 5px;
+        margin: 10px 0;
+        font-size: small;
+    }
+
+    .settingsContainer .setting div h2 {
+        font-size: medium;
+        margin-bottom: 5px;
+    }
+
+    .settingsContainer .setting .formGroup {
+        width: auto;
+    }
+
+    .settingsContainer .setting .formGroup input {
+        font-size: small;
+        margin-bottom: 5px;
+        padding: 5px;
+        padding-left: 0;
+    }
+
+    .formButton {
+        margin-top: 5px;
+        padding: 5px 10px;
+        width: auto;
+    }
+
+    .mt30 {
+        margin-top: 15px;
+    }
+
+    .modal .modalBody {
+        padding: 15px;
+    }
+
+    .modal .modalBody h2 {
+        font-size: medium;
+        margin-bottom: 10px;
+    }
+
+    .modal .modalBody .buttonGroup .formButton {
+        padding: 5px 10px;
+    }
+}

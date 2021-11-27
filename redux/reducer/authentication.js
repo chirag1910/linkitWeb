@@ -24,6 +24,11 @@ const authentication = (state = INITIAL_STATE, action) => {
             ...state,
             user: action.payload,
         };
+    } else if (action.type === types.CHANGE_NAME) {
+        return {
+            ...state,
+            user: { ...state.user, name: action.payload.name },
+        };
     } else {
         return state;
     }
