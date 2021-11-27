@@ -234,7 +234,9 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
                                 URL redirect link
                             </h3>
                             <p className={styles.urlInfoDescription}>
-                                {url.fullUrl}
+                                <a href={url.fullUrl} target="_blank">
+                                    {url.fullUrl}
+                                </a>
                             </p>
                         </div>
 
