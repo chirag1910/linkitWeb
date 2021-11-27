@@ -139,4 +139,8 @@ export default class ApiService {
     deleteUrls = (groupID) => {
         return this.callApi("url/deleteAll", { groupID });
     };
+
+    getPublicUrl = (urlID) => {
+        return this.callApi("url/public/get", { urlID });
+    };
 }
