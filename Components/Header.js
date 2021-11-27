@@ -16,9 +16,13 @@ const Header = ({ user, logoutAction }) => {
 
     return (
         <div className={styles.header}>
-            <div className={styles.logo}>
-                <img src="/vercel.svg" alt="..." />
-            </div>
+            <Link href={user ? "/user" : "/"}>
+                <a>
+                    <div className={styles.logo}>
+                        <img src="/vercel.svg" alt="..." />
+                    </div>
+                </a>
+            </Link>
             <div className={styles.buttonGroup}>
                 {!user ? (
                     <>
