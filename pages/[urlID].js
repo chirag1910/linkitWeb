@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ApiService from "../services/apiService";
 import styles from "../styles/publicUrlPage.module.css";
 

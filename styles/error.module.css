@@ -1,0 +1,64 @@
+.main {
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/abstractBg.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .container {
+    margin: 35px 40px;
+    padding: 50px 60px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main .container h1 {
+    text-align: center;
+    color: #002e33;
+    font-size: xxx-large;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.main .container h3 {
+    text-align: center;
+    color: #008a99;
+    font-size: x-large;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+    .main .container {
+        margin: 20px 25px;
+        padding: 35px 45px;
+    }
+
+    .main .container h3 {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main .container {
+        margin: 20px 25px;
+        padding: 35px 45px;
+    }
+
+    .main .container h1 {
+        font-size: xx-large;
+    }
+
+    .main .container h3 {
+        margin-top: 15px;
+        font-size: large;
+    }
+}
