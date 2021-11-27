@@ -29,12 +29,14 @@ const Urls = ({ urls, group, setUrlsAction }) => {
             {!urls.length && !message && !error && (
                 <h2 className={styles.noUrl}>Add urls to get started</h2>
             )}
-            {urls.length && !message && !error && (
+            {urls.length && !message && !error ? (
                 <div className={styles.urlsContainer}>
                     {urls.map((url) => (
                         <UrlCard url={url} key={url.urlID} />
                     ))}
                 </div>
+            ) : (
+                <></>
             )}
         </div>
     );
