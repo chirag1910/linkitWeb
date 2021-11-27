@@ -1,6 +1,7 @@
 export default class ApiService {
     constructor() {
         this.apiBaseUrl = "http://localhost:7000/";
+        this.apiKey = process.env.API_KEY;
     }
 
     callApi = async (url, bodyParams) => {
@@ -9,7 +10,10 @@ export default class ApiService {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify(bodyParams),
+                body: JSON.stringify({
+                    ...bodyParams,
+                    apiKey: this.apiKey,
+                }),
             });
 
             const data = await res.json();
