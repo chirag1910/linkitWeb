@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/groupPage.module.css";
 import ApiService from "../../services/apiService";
 import { useRouter } from "next/router";
@@ -39,6 +40,7 @@ const Settings = ({
 
         if (isValidateUpdateTitleForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().updateGroupTitle(
                 group.groupID,
@@ -54,6 +56,7 @@ const Settings = ({
             }
         }
         setLoading(false);
+        nProgress.done();
     };
 
     const isValidateUpdateTitleForm = () => {
@@ -66,6 +69,7 @@ const Settings = ({
 
     const updateGroupVisibility = async () => {
         setLoading(true);
+        nProgress.start();
 
         const response = await new ApiService().updateGroupVisibility(
             group.groupID,
@@ -80,10 +84,12 @@ const Settings = ({
         }
 
         setLoading(false);
+        nProgress.done();
     };
 
     const deleteGroup = async () => {
         setLoading(true);
+        nProgress.start();
 
         const response = await new ApiService().deleteGroup(group.groupID);
 
@@ -96,10 +102,12 @@ const Settings = ({
 
         setShowDeleteGroup(false);
         setLoading(false);
+        nProgress.done();
     };
 
     const deleteAllUrls = async () => {
         setLoading(true);
+        nProgress.start();
 
         const response = await new ApiService().deleteUrls(group.groupID);
 
@@ -112,6 +120,7 @@ const Settings = ({
 
         setShowDeleteAllUrls(false);
         setLoading(false);
+        nProgress.done();
     };
 
     return (

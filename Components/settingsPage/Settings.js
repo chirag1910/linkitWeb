@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/settingsPage.module.css";
 import ApiService from "../../services/apiService";
 import { useRouter } from "next/router";
@@ -37,6 +38,7 @@ const Settings = ({
 
         if (isValidateChangePasswordForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().changePassword(
                 oldPassword.trim(),
@@ -52,6 +54,7 @@ const Settings = ({
             }
         }
         setLoading(false);
+        nProgress.done();
     };
 
     const handleChangeName = async (e) => {
@@ -59,6 +62,7 @@ const Settings = ({
 
         if (isValidateChangeNameForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().changeName(name.trim());
 
@@ -71,6 +75,7 @@ const Settings = ({
             }
         }
         setLoading(false);
+        nProgress.done();
     };
 
     const isValidateChangePasswordForm = () => {
@@ -95,6 +100,7 @@ const Settings = ({
 
     const deleteAllGroups = async () => {
         setLoading(true);
+        nProgress.start();
 
         const response = await new ApiService().deleteAllGroups();
 
@@ -107,10 +113,12 @@ const Settings = ({
 
         setShowDeleteAllGroup(false);
         setLoading(false);
+        nProgress.done();
     };
 
     const deleteAccount = async () => {
         setLoading(true);
+        nProgress.start();
 
         const response = await new ApiService().deleteAccount(password);
 
@@ -123,6 +131,7 @@ const Settings = ({
 
         setShowDeleteAccount(false);
         setLoading(false);
+        nProgress.done();
     };
 
     return (

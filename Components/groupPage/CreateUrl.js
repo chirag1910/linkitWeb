@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/groupPage.module.css";
 import formStyles from "../../styles/standaloneForm.module.css";
 import ApiService from "../../services/apiService";
@@ -25,6 +26,7 @@ const CreateUrl = ({ group, addUrlAction }) => {
 
         if (isValidateForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().createUrl(
                 group.groupID,
@@ -47,6 +49,7 @@ const CreateUrl = ({ group, addUrlAction }) => {
                 updateMessage(response.error, true);
             }
             setLoading(false);
+            nProgress.done();
         }
     };
 

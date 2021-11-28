@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/dashboard.module.css";
 import formStyles from "../../styles/standaloneForm.module.css";
 import ApiService from "../../services/apiService";
@@ -25,6 +26,7 @@ const CreateGroup = ({ addGroupAction }) => {
 
         if (isValidateForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().createGroup(
                 title.trim(),
@@ -44,6 +46,7 @@ const CreateGroup = ({ addGroupAction }) => {
                 updateMessage(response.error, true);
             }
             setLoading(false);
+            nProgress.done();
         }
     };
 

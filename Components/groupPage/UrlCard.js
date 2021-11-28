@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/urlcard.module.css";
 import { useState } from "react";
 import { connect } from "react-redux";
@@ -21,6 +22,7 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
     const deleteUrl = async () => {
         if (url) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().deleteUrl(
                 url.groupID,
@@ -32,6 +34,7 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
             }
 
             setLoading(false);
+            nProgress.done();
         }
     };
 
@@ -56,6 +59,7 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
 
         if (url) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().updateUrl(
                 url.groupID,
@@ -70,6 +74,7 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
             }
 
             setLoading(false);
+            nProgress.done();
         }
     };
 

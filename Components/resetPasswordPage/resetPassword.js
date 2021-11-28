@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
@@ -31,6 +32,7 @@ const login = () => {
 
         if (isValidateForm()) {
             setLoading(true);
+            nProgress.start();
             updateMessage("");
 
             if (otpSent) {
@@ -45,6 +47,7 @@ const login = () => {
                 } else {
                     updateMessage(response.error, true);
                     setLoading(false);
+                    nProgress.done();
                 }
             } else {
                 const response = await new ApiService().sendOtp(email.trim());
@@ -57,6 +60,7 @@ const login = () => {
                     updateMessage(response.error, true);
                 }
                 setLoading(false);
+                nProgress.done();
             }
         }
     };

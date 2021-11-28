@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/feedbackPage.module.css";
 import ApiService from "../../services/apiService";
 import { useState } from "react";
@@ -20,6 +21,7 @@ const Feedback = () => {
 
         if (isValidateForm()) {
             setLoading(true);
+            nProgress.start();
 
             const response = await new ApiService().sendFeedback(feedback);
 
@@ -31,6 +33,7 @@ const Feedback = () => {
             }
         }
         setLoading(false);
+        nProgress.done();
     };
 
     const isValidateForm = () => {

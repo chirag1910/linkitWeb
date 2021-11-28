@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
@@ -24,11 +25,13 @@ const login = ({ loginAction }) => {
 
     const handleAuthGoogle = async (googleData) => {
         setLoading(true);
+        nProgress.start();
         updateMessage("");
 
         if (googleData.error) {
             updateMessage("Some error occurred", true);
             setLoading(false);
+            nProgress.done();
         } else {
             const response = await new ApiService().authGoogle(googleData);
             if (response.status === "ok") {
@@ -36,6 +39,7 @@ const login = ({ loginAction }) => {
             } else {
                 updateMessage("Some error occurred", true);
                 setLoading(false);
+                nProgress.done();
             }
         }
     };
@@ -45,6 +49,7 @@ const login = ({ loginAction }) => {
 
         if (isValidateForm()) {
             setLoading(true);
+            nProgress.start();
             updateMessage("");
 
             const response = await new ApiService().login(
@@ -57,6 +62,7 @@ const login = ({ loginAction }) => {
             } else {
                 updateMessage(response.error, true);
                 setLoading(false);
+                nProgress.done();
             }
         }
     };
