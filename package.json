@@ -1,5 +1,5 @@
 {
-  "name": "kakeibo",
+  "name": "linkit",
   "private": true,
   "scripts": {
     "dev": "next dev",
