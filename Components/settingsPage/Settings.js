@@ -117,21 +117,30 @@ const Settings = ({
     };
 
     const deleteAccount = async () => {
-        setLoading(true);
-        nProgress.start();
+        if (isValidateDeleteAccountForm()) {
+            setLoading(true);
+            nProgress.start();
 
-        const response = await new ApiService().deleteAccount(password);
+            const response = await new ApiService().deleteAccount(password);
 
-        if (response.status === "ok") {
-            logoutAction();
-            router.push("/");
-        } else {
-            updateMessage(response.error, true);
+            if (response.status === "ok") {
+                logoutAction();
+                router.push("/");
+            } else {
+                updateMessage(response.error, true);
+            }
         }
-
         setShowDeleteAccount(false);
         setLoading(false);
         nProgress.done();
+    };
+
+    const isValidateDeleteAccountForm = () => {
+        if (!password) {
+            updateMessage("Password required", true);
+            return false;
+        }
+        return true;
     };
 
     return (

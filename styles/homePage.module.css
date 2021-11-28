@@ -1,0 +1,197 @@
+.bg {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/abstractBg.jpg");
+    background-attachment: fixed;
+    padding-bottom: 1px;
+}
+
+.main .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 35px 20px;
+    padding: 20px;
+}
+.main .head h1 {
+    color: #002e33;
+    font-size: xxx-large;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.main .head h2 {
+    color: #008a99;
+    font-size: xx-large;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+    margin-top: 20px;
+}
+
+.main .body .featCard {
+    margin: 60px 40px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main .body .featCard .info {
+    padding-right: 40px;
+}
+
+.main .body .featCard .info h2 {
+    color: #002e33;
+    font-size: xx-large;
+    margin-bottom: 40px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.main .body .featCard .info p {
+    color: #000;
+    font-size: x-large;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    line-height: 40px;
+}
+
+.main .body .featCard .image {
+    padding-left: 40px;
+    max-width: 35%;
+}
+
+.main .body .featCard .image img {
+    width: 100%;
+    height: auto;
+}
+
+.main .body .featCard:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+.main .body .featCard:nth-child(2n) .info {
+    padding: 0;
+    padding-left: 40px;
+}
+.main .body .featCard:nth-child(2n) .image {
+    padding: 0;
+    padding-right: 40px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .main .head {
+        margin: 25px 15px;
+        padding: 15px;
+    }
+
+    .main .head h2 {
+        margin-top: 15px;
+    }
+
+    .main .body .featCard {
+        margin: 50px 30px;
+        padding: 20px 30px;
+    }
+
+    .main .body .featCard .info {
+        padding-right: 20px;
+    }
+
+    .main .body .featCard .info p {
+        line-height: 30px;
+    }
+
+    .main .body .featCard .image {
+        padding-left: 20px;
+        max-width: 40%;
+    }
+    .main .body .featCard:nth-child(2n) .info {
+        padding-left: 20px;
+    }
+    .main .body .featCard:nth-child(2n) .image {
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main .body .featCard {
+        flex-direction: column-reverse;
+    }
+
+    .main .body .featCard .info {
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .main .body .featCard .image {
+        padding: 20px;
+        max-width: 60%;
+    }
+
+    .main .body .featCard:nth-child(2n) {
+        flex-direction: column-reverse;
+    }
+    .main .body .featCard:nth-child(2n) .info {
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .main .body .featCard:nth-child(2n) .image {
+        padding: 20px;
+        max-width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main .head {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+    .main .head h1 {
+        font-size: xx-large;
+    }
+
+    .main .head h2 {
+        font-size: x-large;
+        margin-top: 10px;
+    }
+
+    .main .body .featCard {
+        margin: 45px 25px;
+        padding: 15px 25px;
+    }
+
+    .main .body .featCard .info {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .main .body .featCard .info h2 {
+        font-size: x-large;
+        margin-bottom: 25px;
+    }
+
+    .main .body .featCard .info p {
+        font-size: large;
+        line-height: normal;
+    }
+
+    .main .body .featCard .image {
+        padding: 10px;
+        max-width: 85%;
+    }
+
+    .main .body .featCard:nth-child(2n) .info {
+        padding: 10px;
+        margin-top: 10px;
+    }
+    .main .body .featCard:nth-child(2n) .image {
+        padding: 10px;
+        max-width: 85%;
+    }
+}
