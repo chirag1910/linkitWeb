@@ -1,8 +1,10 @@
 .header {
+    position: relative;
+    z-index: 7;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px;
     background-color: transparent;
     backdrop-filter: blur(10px);
     width: 100%;
@@ -24,34 +26,127 @@
     justify-content: space-between;
     align-items: center;
 }
-.header .buttonGroup a,
-.header .buttonGroup button {
+.header .buttonGroup a {
     margin: auto 5px;
     padding: 7px 15px;
     border-radius: 5px;
     font-weight: 900;
 }
 
-.header .buttonGroup .logout {
-    outline: none;
-    border: none;
-    font-weight: 600;
-}
-
-.header .buttonGroup .signup,
-.header .buttonGroup .logout {
+.header .buttonGroup .signup {
     background-color: #008a99;
     color: #fff;
 }
-.header .buttonGroup .signup:hover,
-.header .buttonGroup .logout:hover {
+.header .buttonGroup .signup:hover {
     background-color: #007380;
 }
-.header .buttonGroup .login,
-.header .buttonGroup .settings {
+.header .buttonGroup .login {
     background-color: transparent;
 }
-.header .buttonGroup .login:hover,
-.header .buttonGroup .settings:hover {
+.header .buttonGroup .login:hover {
     background-color: rgb(0, 0, 0, 0.07);
+}
+
+.header .collapsible {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header .profile {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.header .profile svg {
+    fill: #008a99;
+    width: 33px;
+}
+.header .profile:hover svg,
+.header .profile:focus svg {
+    fill: #002e33;
+}
+
+.header .profileMenu {
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    padding-top: 67px;
+    transform: translateY(-50px);
+    opacity: 0;
+    z-index: 7;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.header .profileMenu ul {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    color: #000;
+}
+
+.header .profileMenu li {
+    padding: 10px 50px;
+    transition: background-color 0.3s ease-in-out;
+}
+.header .profileMenu li:hover {
+    background-color: rgb(0, 0, 0, 0.05);
+}
+
+.header .profileMenu .logout {
+    background-color: #008a99;
+    color: #fff;
+    font-weight: 900;
+    border-radius: 0px 0px 5px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+.header .profileMenu .logout:hover {
+    background-color: #ff6666;
+}
+
+.header .profile:hover + .profileMenu,
+.header .profileMenu:hover {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+@media only screen and (max-width: 800px) {
+    .header {
+        padding: 15px 30px;
+    }
+
+    .header .profileMenu li {
+        padding: 7px 45px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 10px 25px;
+    }
+
+    .header .logo {
+        height: 22px;
+    }
+
+    .header .buttonGroup a {
+        padding: 5px 10px;
+    }
+
+    .header .profile svg {
+        width: 30px;
+    }
+
+    .header .profileMenu li {
+        padding: 5px 40px;
+    }
 }
