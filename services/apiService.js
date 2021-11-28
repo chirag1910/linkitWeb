@@ -147,4 +147,8 @@ export default class ApiService {
     getPublicUrl = (urlID) => {
         return this.callApi("url/public/get", { urlID });
     };
+
+    sendFeedback = (feedback) => {
+        return this.callApi("misc/sendFeedback", { feedback });
+    };
 }

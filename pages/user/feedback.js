@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import Header from "../../Components/Header";
-import SettingsContainer from "../../Components/settingsPage/Settings";
-import styles from "../../styles/settingsPage.module.css";
+import FeedbackContainer from "../../Components/feedbackPage/Feedback";
+import styles from "../../styles/feedbackPage.module.css";
 
 const settings = ({ user }) => {
     const router = useRouter();
@@ -13,7 +13,7 @@ const settings = ({ user }) => {
         if (!user) {
             router.replace({
                 pathname: "/user/login",
-                query: { next: "/user/settings" },
+                query: { next: "/user/feedback" },
             });
         }
     }, [user]);
@@ -21,11 +21,8 @@ const settings = ({ user }) => {
     return (
         <>
             <Head>
-                <title>Settings | LinkIt</title>
-                <meta
-                    name="description"
-                    content="User's settings page | LinkIt"
-                />
+                <title>Feedback | LinkIt</title>
+                <meta name="description" content="Send feedback to LinkIt" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
@@ -33,7 +30,7 @@ const settings = ({ user }) => {
             </Head>
             <div className={styles.main}>
                 <Header />
-                <SettingsContainer />
+                <FeedbackContainer />
             </div>
         </>
     );
