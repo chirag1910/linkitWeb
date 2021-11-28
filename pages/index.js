@@ -1,18 +1,7 @@
 import Head from "next/head";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import Header from "../Components/Header";
-import { connect } from "react-redux";
 
-const index = ({ user }) => {
-    const router = useRouter();
-
-    useEffect(() => {
-        if (user) {
-            router.replace("/user");
-        }
-    }, [user]);
-
+const index = () => {
     return (
         <>
             <Head>
@@ -32,10 +21,4 @@ const index = ({ user }) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.auth.user,
-    };
-};
-
-export default connect(mapStateToProps)(index);
+export default index;

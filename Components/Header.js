@@ -16,7 +16,7 @@ const Header = ({ user, logoutAction }) => {
 
     return (
         <div className={styles.header}>
-            <Link href={user ? "/user" : "/"}>
+            <Link href="/">
                 <a>
                     <div className={styles.logo}>
                         <img src="/vercel.svg" alt="..." />
