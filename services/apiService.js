@@ -1,6 +1,6 @@
 export default class ApiService {
     constructor() {
-        this.apiBaseUrl = "http://localhost:7000/";
+        this.apiBaseUrl = process.env.API_BASE_URL;
         this.apiKey = process.env.API_KEY;
     }
 
