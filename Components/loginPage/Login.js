@@ -143,7 +143,7 @@ const Login = ({ loginAction }) => {
                     </Link>
 
                     <Link href="/user/signup">
-                        <a>Don't have an account?</a>
+                        <a>Don&apos;t have an account?</a>
                     </Link>
 
                     <div className={styles.orHr}>
