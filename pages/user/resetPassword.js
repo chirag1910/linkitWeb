@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../../Components/Header";
-import ResetPasswordContainer from "../../Components/resetPasswordPage/resetPassword";
+import ResetPasswordContainer from "../../Components/resetPasswordPage/ResetPassword";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";

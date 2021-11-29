@@ -76,6 +76,7 @@ const Index = () => {
                                             <a
                                                 href="https://github.com/chirag1910?tab=repositories"
                                                 target="_blank"
+                                                rel="noreferrer"
                                             >
                                                 here!
                                             </a>

@@ -8,7 +8,7 @@ import { login as loginAction } from "../../redux/action/authentication";
 
 import ApiService from "../../services/apiService";
 
-const login = ({ loginAction }) => {
+const Login = ({ loginAction }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -174,4 +174,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(login);
+export default connect(null, mapDispatchToProps)(Login);

@@ -239,7 +239,11 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
                                 URL redirect link
                             </h3>
                             <p className={styles.urlInfoDescription}>
-                                <a href={url.fullUrl} target="_blank">
+                                <a
+                                    href={url.fullUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     {url.fullUrl}
                                 </a>
                             </p>

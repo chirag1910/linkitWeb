@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 import ApiService from "../../services/apiService";
 
-const login = () => {
+const ResetPassword = () => {
     const router = useRouter();
 
     const [email, setEmail] = useState("");
@@ -180,4 +180,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default ResetPassword;
