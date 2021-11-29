@@ -6,7 +6,7 @@ import Header from "../../Components/Header";
 import FeedbackContainer from "../../Components/feedbackPage/Feedback";
 import styles from "../../styles/feedbackPage.module.css";
 
-const settings = ({ user }) => {
+const Feedback = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(settings);
+export default connect(mapStateToProps)(Feedback);

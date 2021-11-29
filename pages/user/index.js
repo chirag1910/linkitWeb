@@ -9,7 +9,7 @@ import CreateGroupContainer from "../../Components/userPage/CreateGroup";
 import GroupsContainer from "../../Components/userPage/Groups";
 import styles from "../../styles/dashboard.module.css";
 
-const dashboard = ({ user }) => {
+const Dashboard = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -51,4 +51,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(dashboard);
+export default connect(mapStateToProps)(Dashboard);

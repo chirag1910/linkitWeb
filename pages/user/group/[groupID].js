@@ -12,7 +12,7 @@ import UrlsContainer from "../../../Components/groupPage/urls";
 import styles from "../../../styles/groupPage.module.css";
 import { setActiveGroup as setActiveGroupAction } from "../../../redux/action/urlGroup";
 
-const group = ({ user, setActiveGroupAction }) => {
+const Group = ({ user, setActiveGroupAction }) => {
     const router = useRouter();
     const { groupID } = router.query;
 
@@ -112,4 +112,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(group);
+export default connect(mapStateToProps, mapDispatchToProps)(Group);

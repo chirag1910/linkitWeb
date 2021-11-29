@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/homePage.module.css";
 import Header from "../Components/Header";
 
-const index = () => {
+const Index = () => {
     const features = [
         {
             title: "URL group sharing",
@@ -94,4 +94,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;

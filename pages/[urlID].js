@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import ApiService from "../services/apiService";
 import styles from "../styles/publicUrlPage.module.css";
 
-const publicUrl = () => {
+const PublicUrl = () => {
     const router = useRouter();
     const { urlID } = router.query;
 
@@ -37,4 +37,4 @@ const publicUrl = () => {
     );
 };
 
-export default publicUrl;
+export default PublicUrl;

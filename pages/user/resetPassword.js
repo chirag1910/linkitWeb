@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 
-const resetPassword = ({ user }) => {
+const ResetPassword = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(resetPassword);
+export default connect(mapStateToProps)(ResetPassword);

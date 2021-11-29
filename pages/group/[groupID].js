@@ -6,7 +6,7 @@ import Header from "../../Components/Header";
 import styles from "../../styles/publicGroupPage.module.css";
 import PublicGroupContainer from "../../Components/PublicGroup";
 
-const publicGroup = () => {
+const PublicGroup = () => {
     const router = useRouter();
     const { groupID } = router.query;
 
@@ -59,4 +59,4 @@ const publicGroup = () => {
     );
 };
 
-export default publicGroup;
+export default PublicGroup;

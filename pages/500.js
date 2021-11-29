@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/error.module.css";
 import Link from "next/link";
 
-const custom500 = () => {
+const Custom500 = () => {
     return (
         <>
             <Head>
@@ -27,4 +27,4 @@ const custom500 = () => {
     );
 };
 
-export default custom500;
+export default Custom500;

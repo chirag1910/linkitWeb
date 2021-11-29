@@ -6,7 +6,7 @@ import Header from "../../Components/Header";
 import SettingsContainer from "../../Components/settingsPage/Settings";
 import styles from "../../styles/settingsPage.module.css";
 
-const settings = ({ user }) => {
+const Settings = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(settings);
+export default connect(mapStateToProps)(Settings);

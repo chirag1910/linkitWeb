@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 
-const login = ({ user }) => {
+const Login = ({ user }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -37,4 +37,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(login);
+export default connect(mapStateToProps)(Login);
