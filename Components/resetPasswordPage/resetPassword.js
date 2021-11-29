@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 import ApiService from "../../services/apiService";
 
-const ResetPassword = () => {
+const ResetPass = () => {
     const router = useRouter();
 
     const [email, setEmail] = useState("");
@@ -180,4 +180,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default ResetPass;
