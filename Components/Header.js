@@ -22,17 +22,17 @@ const Header = ({ user, logoutAction }) => {
             <Link href="/">
                 <a>
                     <div className={styles.logo}>
-                        <img src="/vercel.svg" alt="..." />
+                        <img src="/logo.png" alt="LinkIt" />
                     </div>
                 </a>
             </Link>
             {!user ? (
                 <div className={styles.buttonGroup}>
-                    <Link href="/user/signup">
-                        <a className={styles.signup}>Signup</a>
-                    </Link>
                     <Link href="/user/login">
                         <a className={styles.login}>Login</a>
+                    </Link>
+                    <Link href="/user/signup">
+                        <a className={styles.signup}>Signup</a>
                     </Link>
                 </div>
             ) : (

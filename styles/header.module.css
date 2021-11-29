@@ -13,7 +13,7 @@
 
 .header .logo {
     width: auto;
-    height: 25px;
+    height: 35px;
 }
 
 .header .logo img {
@@ -36,6 +36,7 @@
 .header .buttonGroup .signup {
     background-color: #008a99;
     color: #fff;
+    margin-right: 0;
 }
 .header .buttonGroup .signup:hover {
     background-color: #007380;
