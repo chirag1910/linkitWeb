@@ -1,3 +1,4 @@
+import nProgress from "nprogress";
 import styles from "../styles/header.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,8 +10,10 @@ const Header = ({ user, logoutAction }) => {
     const router = useRouter();
 
     const handleLogout = async () => {
+        nProgress.start();
         await new ApiService().logout();
         logoutAction();
+        nProgress.done();
         router.push("/");
     };
 
