@@ -8,7 +8,7 @@ import TitleContainer from "../../../Components/groupPage/Title";
 import ShareGroupContainer from "../../../Components/groupPage/ShareGroup";
 import SettingsContainer from "../../../Components/groupPage/Settings";
 import CreateUrlContainer from "../../../Components/groupPage/CreateUrl";
-import UrlsContainer from "../../../Components/groupPage/urls";
+import UrlsContainer from "../../../Components/groupPage/Urls";
 import styles from "../../../styles/groupPage.module.css";
 import { setActiveGroup as setActiveGroupAction } from "../../../redux/action/urlGroup";
 
