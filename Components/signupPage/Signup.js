@@ -227,7 +227,7 @@ const Signup = ({ loginAction }) => {
                             onSuccess={handleAuthGoogle}
                             onFailure={() =>
                                 updateMessage(
-                                    "Sorry, continue with google won't work",
+                                    "Error continuing with google",
                                     true
                                 )
                             }
