@@ -8,8 +8,13 @@ export default class ApiService {
         try {
             const res = await fetch(this.apiBaseUrl + url, {
                 method: "POST",
-                headers: { "content-type": "application/json" },
+                headers: {
+                    "content-type": "application/json",
+                    accept: "application/json",
+                },
+                mode: "cors",
                 credentials: "include",
+                withCredentials: true,
                 body: JSON.stringify({
                     ...bodyParams,
                     apiKey: this.apiKey,
