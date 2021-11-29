@@ -86,7 +86,7 @@ const UrlCard = ({ url, deleteUrlAction, updateUrlAction }) => {
         }, 1000);
     };
 
-    const urlShareLink = `/${url.urlID}`;
+    const urlShareLink = `${process.env.WEBSITE_BASE_URL}${url.urlID}`;
 
     return (
         <>

@@ -13,7 +13,7 @@ const ShareGroup = ({ group }) => {
         }, 1000);
     };
 
-    const groupShareUrl = `/group/${group.groupID}`;
+    const groupShareUrl = `${process.env.WEBSITE_BASE_URL}group/${group.groupID}`;
 
     return (
         <>
