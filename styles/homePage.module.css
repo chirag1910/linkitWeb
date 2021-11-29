@@ -68,6 +68,7 @@
 .main .body .featCard .image img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .main .body .featCard:nth-child(2n) {
