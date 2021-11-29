@@ -22,7 +22,7 @@ const Header = ({ user, logoutAction }) => {
             <Link href="/">
                 <a>
                     <div className={styles.logo}>
-                        <img src="/logo.png" alt="LinkIt" />
+                        <img src="/logo.webp" alt="LinkIt" />
                     </div>
                 </a>
             </Link>

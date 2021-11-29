@@ -9,7 +9,7 @@ const Index = () => {
             tagline: "Got sick of sharing multiple URLs again and again?",
             description:
                 "Create a public group containing the URLs and share them all with just one link.",
-            image: "/home/1.png",
+            image: "/home/1.webp",
         },
 
         {
@@ -18,28 +18,28 @@ const Index = () => {
                 "Get rid of long uniform resource locators! Convert them into short URLs.",
             description:
                 "Just add orginal links in the group and get short shareable link.",
-            image: "/home/2.png",
+            image: "/home/2.webp",
         },
 
         {
             title: "Free forever",
             tagline: "No credit cards! No commitments!",
             description: "Create an account and start linking.",
-            image: "/home/3.png",
+            image: "/home/3.webp",
         },
 
         {
             title: "Interactive & simple UI",
             tagline:
                 "Modern and simple design with no intrusive advertisements",
-            image: "/home/4.png",
+            image: "/home/4.webp",
         },
 
         {
             title: "Open source",
             tagline: "Having concerns about security and privacy?",
             description: "Completely open source project. Checkout ",
-            image: "/home/5.png",
+            image: "/home/5.webp",
         },
     ];
 
