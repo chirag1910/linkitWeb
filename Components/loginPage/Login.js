@@ -156,7 +156,7 @@ const Login = ({ loginAction }) => {
                             clientId={process.env.GOOGLE_CLIENT_ID}
                             buttonText="Continue with google"
                             onSuccess={handleAuthGoogle}
-                            onFailure={handleAuthGoogle}
+                            onFailure={(err) => console.log("fail", err)}
                             cookiePolicy={"single_host_origin"}
                         />
                     </div>
