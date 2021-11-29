@@ -65,7 +65,12 @@ const Header = ({ user, logoutAction }) => {
                             </li>
                             <li>
                                 <Link href="/user/settings">
-                                    <a className={styles.settings}>Settings</a>
+                                    <a>Settings</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/user/feedback">
+                                    <a>Send feedback</a>
                                 </Link>
                             </li>
                             <li
