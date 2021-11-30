@@ -60,17 +60,23 @@ const Header = ({ user, logoutAction }) => {
                         <ul>
                             <li>
                                 <Link href="/user">
-                                    <a>Dashboard</a>
+                                    <a>
+                                        <p>Dashboard</p>
+                                    </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/user/settings">
-                                    <a>Settings</a>
+                                    <a>
+                                        <p>Settings</p>
+                                    </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/user/feedback">
-                                    <a>Send feedback</a>
+                                    <a>
+                                        <p>Send feedback</p>
+                                    </a>
                                 </Link>
                             </li>
                             <li
