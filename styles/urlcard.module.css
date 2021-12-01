@@ -152,7 +152,7 @@
     .buttonGroup {
         display: flex;
         margin: 0;
-        margin-right: 10px;
+        justify-content: flex-end;
     }
 
     .formButton {
