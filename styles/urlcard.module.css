@@ -41,6 +41,7 @@
 .formButton {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 5px 10px;
     width: fit-content;
     border-radius: 7px;
@@ -190,6 +191,11 @@
 
     .buttonGroup {
         margin-right: 7px;
+    }
+
+    .formButton,
+    .expandable {
+        width: 100%;
     }
 
     .formButton img {
