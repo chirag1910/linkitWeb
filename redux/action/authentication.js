@@ -17,7 +17,7 @@ export const logout = () => {
     };
 };
 
-export const changeName = (name, email) => {
+export const changeName = (name) => {
     return {
         type: types.CHANGE_NAME,
         payload: {
