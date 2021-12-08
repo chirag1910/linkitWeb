@@ -1,11 +1,12 @@
 import * as types from "../actionType/authentication";
 
-export const login = (name, email) => {
+export const login = (name, email, avatar) => {
     return {
         type: types.LOGIN,
         payload: {
             name,
             email,
+            avatar,
         },
     };
 };
