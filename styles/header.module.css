@@ -70,6 +70,11 @@
 .header .profile:focus svg {
     fill: #002e33;
 }
+.header .profile img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
 
 .header .profileMenu {
     position: absolute;
@@ -148,6 +153,10 @@
 
     .header .profile svg {
         width: 30px;
+    }
+    .header .profile img {
+        width: 30px;
+        height: 30px;
     }
 
     .header .profileMenu li a p,
