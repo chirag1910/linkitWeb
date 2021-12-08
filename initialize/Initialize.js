@@ -9,7 +9,7 @@ const Initialize = ({ children, loginAction }) => {
         nProgress.start();
         const response = await new ApiService().verifyUser();
         if (response.status === "ok") {
-            loginAction(response.name, response.email);
+            loginAction(response.name, response.email, response.avatar);
         }
         nProgress.done();
     }, []);
@@ -19,7 +19,8 @@ const Initialize = ({ children, loginAction }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginAction: (name, email) => dispatch(loginAction(name, email)),
+        loginAction: (name, email, avatar) =>
+            dispatch(loginAction(name, email, avatar)),
     };
 };
 

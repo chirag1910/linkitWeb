@@ -40,7 +40,7 @@ const Signup = ({ loginAction }) => {
         } else {
             const response = await new ApiService().authGoogle(googleData);
             if (response.status === "ok") {
-                loginAction(response.name, response.email);
+                loginAction(response.name, response.email, response.avatar);
             } else {
                 updateMessage("Some error occurred", true);
                 setLoading(false);
@@ -80,7 +80,7 @@ const Signup = ({ loginAction }) => {
                 );
 
                 if (response.status === "ok") {
-                    loginAction(response.name, response.email);
+                    loginAction(response.name, response.email, response.avatar);
                 } else {
                     updateMessage(response.error, true);
                     setLoading(false);
@@ -245,7 +245,8 @@ const Signup = ({ loginAction }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginAction: (name, email) => dispatch(loginAction(name, email)),
+        loginAction: (name, email, avatar) =>
+            dispatch(loginAction(name, email, avatar)),
     };
 };
 
