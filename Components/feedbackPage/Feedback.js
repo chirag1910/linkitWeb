@@ -78,7 +78,7 @@ const Feedback = () => {
                                     name="feedback"
                                     cols="50"
                                     autoFocus={true}
-                                    maxLength="500"
+                                    maxLength="1500"
                                     placeholder="Feedback"
                                     value={feedback}
                                     onChange={(e) => {
