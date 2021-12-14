@@ -27,7 +27,7 @@ class MyDocument extends Document {
                     />
                     <meta
                         property="og:image"
-                        content="https://linkit.vercel.app/logo.webp"
+                        content="https://linkit.vercel.app/favicon.ico"
                     />
                 </Head>
                 <body>
