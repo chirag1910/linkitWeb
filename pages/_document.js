@@ -15,6 +15,20 @@ class MyDocument extends Document {
                         content="URL shortner, URL sharing, URL group sharing"
                     />
                     <meta name="author" content="Chirag Goyal" />
+                    <meta
+                        property="og:url"
+                        content="https://linkit.vercel.app/"
+                    />
+                    <meta property="og:type" content="Website" />
+                    <meta property="og:title" content="LinkIt" />
+                    <meta
+                        property="og:description"
+                        content="URL group sharing and URL shortner at one spot"
+                    />
+                    <meta
+                        property="og:image"
+                        content="https://linkit.vercel.app/logo.webp"
+                    />
                 </Head>
                 <body>
                     <Main />
