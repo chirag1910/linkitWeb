@@ -29,6 +29,19 @@ class MyDocument extends Document {
                         property="og:image"
                         content="https://linkit.vercel.app/icon.webp"
                     />
+                    <meta
+                        property="twitter:url"
+                        content="https://linkit.vercel.app/"
+                    />
+                    <meta property="twitter:title" content="LinkIt" />
+                    <meta
+                        property="twitter:description"
+                        content="URL group sharing and URL shortner at one spot"
+                    />
+                    <meta
+                        property="twitter:image"
+                        content="https://linkit.vercel.app/icon.webp"
+                    />
                 </Head>
                 <body>
                     <Main />
