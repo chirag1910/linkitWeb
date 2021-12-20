@@ -27,7 +27,11 @@ class MyDocument extends Document {
                     />
                     <meta
                         property="og:image"
-                        content="https://linkit.vercel.app/icon.webp"
+                        content="https://linkit.vercel.app/home/4.webp"
+                    />
+                    <meta
+                        property="twitter:card"
+                        content="summary_large_image"
                     />
                     <meta
                         property="twitter:url"
@@ -40,7 +44,7 @@ class MyDocument extends Document {
                     />
                     <meta
                         property="twitter:image"
-                        content="https://linkit.vercel.app/icon.webp"
+                        content="https://linkit.vercel.app/home/4.webp"
                     />
                 </Head>
                 <body>
