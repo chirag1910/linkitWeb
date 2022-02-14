@@ -189,7 +189,7 @@ const Signup = ({ loginAction }) => {
                                 disabled={otpSent}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            {otpSent && (
+                            {otpSent && !loading && (
                                 <span onClick={handleEmailEdit}>Edit?</span>
                             )}
                         </div>
@@ -207,7 +207,7 @@ const Signup = ({ loginAction }) => {
                                 disabled={!otpSent}
                                 onChange={(e) => setOtp(e.target.value)}
                             />
-                            {otpSent && allowResend && (
+                            {otpSent && allowResend && !loading && (
                                 <span onClick={handleOtpResend}>Resend?</span>
                             )}
                         </div>
