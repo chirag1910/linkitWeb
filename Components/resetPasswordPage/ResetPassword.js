@@ -1,7 +1,7 @@
 import nProgress from "nprogress";
 import styles from "../../styles/authForm.module.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import ApiService from "../../services/apiService";
@@ -23,6 +23,22 @@ const ResetPassword = () => {
     const [otpSent, setOtpSent] = useState(false);
 
     const [allowResend, setAllowResend] = useState(false);
+
+    const [emailFromUrl, setEmailFromUrl] = useState(false);
+    const [otpFromUrl, setotpFromUrl] = useState(false);
+
+    useEffect(() => {
+        const { email: urlEmail, otp: urlOtp } = router.query;
+        if (urlEmail && urlOtp) {
+            setEmailFromUrl(true);
+            setotpFromUrl(true);
+            setEmail(urlEmail);
+            setOtp(urlOtp);
+
+            setButtonText("Reset password");
+            setOtpSent(true);
+        }
+    }, [router]);
 
     const updateMessage = (message, isError = false) => {
         setMessage(message);
@@ -147,39 +163,45 @@ const ResetPassword = () => {
                         </p>
                     )}
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="email" value="Email" />
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                value={email}
-                                disabled={otpSent}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            {otpSent && !loading && (
-                                <span onClick={handleEmailEdit}>Edit?</span>
-                            )}
-                        </div>
+                        {!emailFromUrl && (
+                            <div className={styles.formGroup}>
+                                <label htmlFor="email" value="Email" />
+                                <input
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={email}
+                                    disabled={otpSent}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                {otpSent && !loading && (
+                                    <span onClick={handleEmailEdit}>Edit?</span>
+                                )}
+                            </div>
+                        )}
 
-                        <div className={styles.formGroup}>
-                            <label htmlFor="otp" value="OTP" />
-                            <input
-                                id="otp"
-                                type="number"
-                                minLength="6"
-                                maxLength="6"
-                                name="otp"
-                                placeholder="One time password"
-                                value={otp}
-                                disabled={!otpSent}
-                                onChange={(e) => setOtp(e.target.value)}
-                            />
-                            {otpSent && allowResend && !loading && (
-                                <span onClick={handleOtpResend}>Resend?</span>
-                            )}
-                        </div>
+                        {!otpFromUrl && (
+                            <div className={styles.formGroup}>
+                                <label htmlFor="otp" value="OTP" />
+                                <input
+                                    id="otp"
+                                    type="number"
+                                    minLength="6"
+                                    maxLength="6"
+                                    name="otp"
+                                    placeholder="One time password"
+                                    value={otp}
+                                    disabled={!otpSent}
+                                    onChange={(e) => setOtp(e.target.value)}
+                                />
+                                {otpSent && allowResend && !loading && (
+                                    <span onClick={handleOtpResend}>
+                                        Resend?
+                                    </span>
+                                )}
+                            </div>
+                        )}
 
                         <div className={styles.formGroup}>
                             <label htmlFor="password" value="New password" />
