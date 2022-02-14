@@ -44,7 +44,8 @@
 
 .main .formGroup {
     width: 250px;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+    text-align: right;
 }
 
 .main .formGroup input {
@@ -54,6 +55,7 @@
     width: 100%;
     padding: 10px;
     border-radius: 7px;
+    margin-bottom: 3px;
     border: none;
     outline: none;
     border-bottom: 1px #555 solid;
@@ -68,6 +70,13 @@
 }
 .main .formGroup input::placeholder {
     color: #555;
+}
+
+.main .formGroup span {
+    cursor: pointer;
+}
+.main .formGroup span:hover {
+    color: #008a99;
 }
 
 .formButton {

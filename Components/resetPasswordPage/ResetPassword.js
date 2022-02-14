@@ -22,9 +22,47 @@ const ResetPassword = () => {
 
     const [otpSent, setOtpSent] = useState(false);
 
+    const [allowResend, setAllowResend] = useState(false);
+
     const updateMessage = (message, isError = false) => {
         setMessage(message);
         setIsMessageError(isError);
+    };
+
+    const handleEmailEdit = () => {
+        setOtpSent(false);
+        setButtonText("Send OTP");
+        updateMessage("");
+    };
+
+    const handleAllowResend = () => {
+        setTimeout(() => {
+            setAllowResend(true);
+        }, 10 * 1000);
+    };
+
+    const handleOtpResend = async () => {
+        setLoading(true);
+        nProgress.start();
+        updateMessage("");
+
+        if (!email) {
+            updateMessage("Email is required", true);
+            return false;
+        }
+
+        const response = await new ApiService().sendOtp(email.trim());
+
+        if (response.status === "ok") {
+            updateMessage("OTP sent");
+            setButtonText("Reset password");
+            setAllowResend(false);
+            handleAllowResend();
+        } else {
+            updateMessage(response.error, true);
+        }
+        setLoading(false);
+        nProgress.done();
     };
 
     const handleSubmit = async (e) => {
@@ -56,6 +94,8 @@ const ResetPassword = () => {
                     updateMessage("OTP sent");
                     setButtonText("Reset password");
                     setOtpSent(true);
+                    setAllowResend(false);
+                    handleAllowResend();
                 } else {
                     updateMessage(response.error, true);
                 }
@@ -118,6 +158,9 @@ const ResetPassword = () => {
                                 disabled={otpSent}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            {otpSent && (
+                                <span onClick={handleEmailEdit}>Edit?</span>
+                            )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -133,6 +176,9 @@ const ResetPassword = () => {
                                 disabled={!otpSent}
                                 onChange={(e) => setOtp(e.target.value)}
                             />
+                            {otpSent && allowResend && (
+                                <span onClick={handleOtpResend}>Resend?</span>
+                            )}
                         </div>
 
                         <div className={styles.formGroup}>

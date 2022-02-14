@@ -23,9 +23,47 @@ const Signup = ({ loginAction }) => {
 
     const [otpSent, setOtpSent] = useState(false);
 
+    const [allowResend, setAllowResend] = useState(false);
+
     const updateMessage = (message, isError = false) => {
         setMessage(message);
         setIsMessageError(isError);
+    };
+
+    const handleEmailEdit = () => {
+        setOtpSent(false);
+        setButtonText("Send OTP");
+        updateMessage("");
+    };
+
+    const handleAllowResend = () => {
+        setTimeout(() => {
+            setAllowResend(true);
+        }, 10 * 1000);
+    };
+
+    const handleOtpResend = async () => {
+        setLoading(true);
+        nProgress.start();
+        updateMessage("");
+
+        if (!email) {
+            updateMessage("Email is required", true);
+            return false;
+        }
+
+        const response = await new ApiService().initializeUser(email.trim());
+
+        if (response.status === "ok") {
+            updateMessage("OTP Sent");
+            setButtonText("Signup");
+            setAllowResend(false);
+            handleAllowResend();
+        } else {
+            updateMessage(response.error, true);
+        }
+        setLoading(false);
+        nProgress.done();
     };
 
     const handleAuthGoogle = async (googleData) => {
@@ -66,6 +104,8 @@ const Signup = ({ loginAction }) => {
                     updateMessage("OTP Sent");
                     setButtonText("Signup");
                     setOtpSent(true);
+                    setAllowResend(false);
+                    handleAllowResend();
                 } else {
                     updateMessage(response.error, true);
                 }
@@ -149,6 +189,9 @@ const Signup = ({ loginAction }) => {
                                 disabled={otpSent}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            {otpSent && (
+                                <span onClick={handleEmailEdit}>Edit?</span>
+                            )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -164,6 +207,9 @@ const Signup = ({ loginAction }) => {
                                 disabled={!otpSent}
                                 onChange={(e) => setOtp(e.target.value)}
                             />
+                            {otpSent && allowResend && (
+                                <span onClick={handleOtpResend}>Resend?</span>
+                            )}
                         </div>
 
                         <div className={styles.formGroup}>
